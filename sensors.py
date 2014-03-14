@@ -1,8 +1,12 @@
 class Sensor:
-  def humidity():
+  def humidity_status():
 
-  def temperature():
+  def temperature_status():
 
-  def uv_light_power():
+  def get_uv_light_power():
   
-  def heat_light_power():
+  def set_uv_light_power(to):
+  
+  def get_heat_light_power():
+
+  def set_heat_light_power(to):
