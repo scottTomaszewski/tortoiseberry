@@ -12,3 +12,5 @@ class Sensor:
   def set_heat_light_power(to):
 
   def maintain_temperature_between(min, max):
+
+  def set_lights_out(time):
