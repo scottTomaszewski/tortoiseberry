@@ -1,4 +1,4 @@
-Class temperature_range:
+Class range:
   def min(self):
     return self.min
 
