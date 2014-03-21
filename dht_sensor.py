@@ -1,4 +1,4 @@
-from subprocess
+import subprocess
 
 Class dht11_sensor:
   def name(self):
