@@ -1,4 +1,4 @@
-class light:
+class Light:
   def name(self):
     return self.name
 

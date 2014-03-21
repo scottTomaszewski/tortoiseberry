@@ -1,4 +1,4 @@
-class Sensor:
+class Sensors:
   def humidity_status():
 
   def temperature_status():
