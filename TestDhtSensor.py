@@ -1,6 +1,7 @@
 import DhtSensor
+import Range
 
-class TestDhtSensor:
-  def __init__(self):
-    toTest = DhtSensor()
-
+if __name__ == "__main__":
+  minMax = Range.Range(0,100)
+  toTest = DhtSensor.DhtSensor("test", minMax, minMax, minMax, minMax)
+  print toTest.humidity()

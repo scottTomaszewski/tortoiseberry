@@ -27,7 +27,7 @@ class DhtSensor:
     return -1
 
   def dht(self):
-    p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "2302", "4"], stdout=subprocess.PIPE)
+    p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT.c", "2302", "4"], stdout=subprocess.PIPE)
     return p.communicate()[0]
 
   def is_within_expected_humidity(self):
