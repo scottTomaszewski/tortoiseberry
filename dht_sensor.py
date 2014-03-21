@@ -1,6 +1,6 @@
 import subprocess
 
-Class dht11_sensor:
+class dht11_sensor:
   def name(self):
     return self.name
   
