@@ -17,12 +17,14 @@ class DhtSensor:
     return self.absolute_humidity
 
   def humidity(self):
-    if "Hum" in self.dht():
+    out = self.dht():
+    if "Hum" in out:
       return out[out.index("Hum"):].split()[2]
     return -1
 
   def temperature(self):
-    if "Temp" in self.dht():
+    out = self.dht()
+    if "Temp" in out:
       return out[out.index("Temp"):].split()[2]
     return -1
 
