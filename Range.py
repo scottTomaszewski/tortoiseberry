@@ -1,4 +1,4 @@
-class range:
+class Range:
   def min(self):
     return self.min
 
