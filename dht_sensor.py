@@ -1,6 +1,6 @@
 import subprocess
 
-class dht11_sensor:
+class DHT_sensor:
   def name(self):
     return self.name
   
@@ -54,7 +54,7 @@ class dht11_sensor:
   def compare_to_absolute_temp(self):
     return self.absolute_temps.compare_to(self.temperature())
     
-  def __intt__(name, expected_temperatures, absolute_temperatures, expected_humidity, absolute_humidity):
+  def __init__(self, name, expected_temperatures, absolute_temperatures, expected_humidity, absolute_humidity):
     self.name = name
     self.expected_temps = expected_temperatures
     self.absolute_temps = absolute_temperatures
