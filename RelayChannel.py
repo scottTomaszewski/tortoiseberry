@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+
 class RelayChannel:
   def on(self):
     GPIO.output(self.pin, GPIO.HIGH)
@@ -7,7 +8,7 @@ class RelayChannel:
     GPIO.output(self.pin, GPIO.LOW)
 
   def status(self):
-    return 0
+    return GPIO.input(self.pin)
 
   def setup(self):
     if str(self.pin).isdigit():
