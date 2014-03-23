@@ -3,7 +3,7 @@ import collections
 
 class RelayModule:
   def channelIndex(self, index):
-    return self.channels.values[index]
+    return self.channels.values()[index]
 
   def channel(self, name):
     return self.channels[name]
