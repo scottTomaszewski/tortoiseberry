@@ -26,6 +26,21 @@ def unnamed():
 def named():
   print "===Named Test==="
   
+def temp():
+  print "===Temp Test==="
+  toTest = RelayModule.RelayModule.unnamed([11, 13])
+  toTest.channel(0).on()
+  print toTest.channel(0).status()
+  toTest.channel(1).on()
+  print toTest.channel(1).status()
+  time.sleep(wait)
+  toTest.channel(0).off()
+  print toTest.channel(0).status()
+  toTest.channel(1).off()
+  print toTest.channel(1).status()
+ 
+
 if __name__ == "__main__":
   unnamed()
   named()
+  temp()
