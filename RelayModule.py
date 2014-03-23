@@ -7,6 +7,8 @@ class RelayModule:
   def channel(self, name):
     return self.channels[name]
 
+  #def allOn():
+
   def __init__(self, nameToPin):
     self.channels = {}
     for name, pin in nameToPin.iteritems():
