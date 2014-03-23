@@ -1,10 +1,24 @@
 import RelayChannel
 
 class RelayModule:
-  def channel(self, index):
-    return self.channels[index]
+  def channelIndex(self, index):
+    return self.channels.values[index]
 
-  def __init__(self, pinList):
+  def channel(self, name):
+    return self.channels[name]
+
+  def __init__(self, nameToPin):
     self.channels = {}
+    for name, pin in nameToPin.iteritems():
+      self.channels[name] = RelayChannel.RelayChannel(pin)
+
+  @classmethod
+  def unnamed(cls, pinList):
+    indexToPin = {}
     for idx, pin in enumerate(pinList):
-      self.channels[idx] = RelayChannel.RelayChannel(pin)
+      indexToPin[idx] = pin
+    return cls(indexToPin)
+
+  @classmethod
+  def named(cls, nameToPin):
+    return cls(nameToPin)
