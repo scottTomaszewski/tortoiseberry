@@ -1,4 +1,5 @@
 import RelayChannel
+import collections
 
 class RelayModule:
   def channelIndex(self, index):
@@ -10,7 +11,7 @@ class RelayModule:
   #def allOn():
 
   def __init__(self, nameToPin):
-    self.channels = {}
+    self.channels = collections.OrderedDict()
     for name, pin in nameToPin.iteritems():
       self.channels[name] = RelayChannel.RelayChannel(pin)
 
