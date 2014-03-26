@@ -17,7 +17,7 @@ class DhtSensor:
     return -1
 
   def dht(self):
-    p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "2302", self.pin], stdout=subprocess.PIPE)
+    p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "2302", str(self.pin)], stdout=subprocess.PIPE)
     return p.communicate()[0]
 
   def __init__(self, pin):
