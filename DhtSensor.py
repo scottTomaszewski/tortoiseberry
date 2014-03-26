@@ -4,18 +4,6 @@ class DhtSensor:
   def name(self):
     return self.name
   
-  def expected_temperature(self):
-    return self.expected_temp
-
-  def absolute_temperature(self):
-    return self.absolute_temp
-
-  def expected_humidity(self):
-    return self.expected_humidity
-
-  def absolute_humidity(self):
-    return self.absolute_humidity
-
   def humidity(self):
     out = self.dht()
     if "Hum" in out:
@@ -29,45 +17,10 @@ class DhtSensor:
     return -1
 
   def dht(self):
-    p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "2302", "4"], stdout=subprocess.PIPE)
+    p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "2302", self.pin], stdout=subprocess.PIPE)
     return p.communicate()[0]
 
-  def is_within_expected_humidity(self):
-    return self.compare_to_expected_humidity() == 0
-
-  def compare_to_expected_humidity(self):
-    return self.expected_humidity.compare_to(self.humidity())
-
-  def is_within_absolute_humidity(self):
-    return self.compare_to_absolute_humidity() == 0
-
-  def compare_to_absolute_humidity(self):
-    return self.absolute_humidity.compare_to(self.humidity())
-
-  def is_within_expected_temp(self):
-    return self.compare_to_absolute_temp() == 0
-
-  def compare_to_expected_temp(self):
-    return self.expected_temps.compare_to(self.temperature())
-
-  def is_within_absolute_temp(self):
-    return self.compare_to_absolute_temp() == 0
-
-  def compare_to_absolute_temp(self):
-    return self.absolute_temps.compare_to(self.temperature())
-    
-  def __init__(self, name, expected_temperatures, absolute_temperatures, expected_humidity, absolute_humidity):
-    self.name = name
-    self.expected_temps = expected_temperatures
-    self.absolute_temps = absolute_temperatures
-    self.expected_humidity = expected_humidity
-    self.absolute_humidity = absolute_humidity
-  
-  @classmethod
-  def withRanges(cls, name, expected_temperatures, absolute_temperatures, expected_humidity, absolute_humidity):
-    return cls(name, expected_temperatures, absolute_temperatures, expected_humidity, absolute_humidity)
-
-  @classmethod
-  def withoutRanges(cls, name):
-    fullRange = Range.Range(0, 100)
-    return cls("name", fullRange, fullRange, fullRange, fullRange)
+  def __init__(self, pin):
+    if not str(pin).isdigit():
+      raise Exception("invalid argument: pin expected to be positive int")
+    self.pin = pin
