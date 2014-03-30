@@ -1,6 +1,6 @@
 import DhtSensor
 
-class DhtSensor:
+class HumidityTemperatureSensor:
   def name(self):
     return self.name
   
