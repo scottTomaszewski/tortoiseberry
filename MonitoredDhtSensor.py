@@ -56,9 +56,9 @@ class DhtSensor:
   
   @classmethod
   def withRanges(cls, name, pin, expected_temperatures, absolute_temperatures, expected_humidity, absolute_humidity):
-    return cls(name, expected_temperatures, absolute_temperatures, expected_humidity, absolute_humidity)
+    return cls(name, pin, expected_temperatures, absolute_temperatures, expected_humidity, absolute_humidity)
 
   @classmethod
   def withoutRanges(cls, name, pin):
     fullRange = Range.Range(0, 100)
-    return cls("name", fullRange, fullRange, fullRange, fullRange)
+    return cls(name, pin, fullRange, fullRange, fullRange, fullRange)
