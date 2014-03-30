@@ -1,9 +1,6 @@
 import subprocess
 
 class DhtSensor:
-  def name(self):
-    return self.name
-  
   def humidity(self):
     out = self.dht()
     if "Hum" in out:
