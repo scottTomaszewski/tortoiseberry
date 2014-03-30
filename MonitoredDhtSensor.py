@@ -1,4 +1,3 @@
-import subprocess
 import DhtSensor
 
 class DhtSensor:
@@ -18,10 +17,10 @@ class DhtSensor:
     return self.absolute_humidity
 
   def humidity(self):
-    return -1
+    return self.sensor.humidity()
 
   def temperature(self):
-    return -1
+    return self.sensor.temperature()
 
   def is_within_expected_humidity(self):
     return self.compare_to_expected_humidity() == 0
