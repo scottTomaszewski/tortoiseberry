@@ -15,7 +15,7 @@ class ScheduledRelayChannel:
   def status(self):
     return self.channel.status()
 
-  def nextTimeAndAction(self):
+  def nextScheduledTimeAndAction(self):
     return None
 
   def reasonForLastChange(self):
