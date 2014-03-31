@@ -1,7 +1,12 @@
 import RelayChannel
 
 class ScheduledRelayChannel:
-  def on(self):
+  def __init__(self, relayChannel, schedule):
+    self.channel = relayChannel
+    self.schedule = schedule
+    self.reasonForLastChange = "Never changed"
+
+def on(self):
     self.manuallyChangedReason(self.status(), "ON")
     return self.channel.on()
 
@@ -21,7 +26,3 @@ class ScheduledRelayChannel:
   def reasonForLastChange(self):
     return self.reasonForLastChange
 
-  def __init__(self, relayChannel, schedule):
-    self.channel = relayChannel
-    self.schedule = schedule
-    self.reasonForLastChange = "Never changed"
