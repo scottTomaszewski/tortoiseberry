@@ -8,7 +8,16 @@ class RelayModule:
   def channel(self, name):
     return self.channels[name]
 
-  #def allOn():
+  def allOn(self):
+    for channel in self.channels.values():
+      channel.on()
+
+  def allOff(self):
+    for channel in self.channels.values():
+      channel.off()
+
+  def all(self):
+    return self.channels.values()
 
   def __init__(self, nameToPin):
     self.channels = collections.OrderedDict()
