@@ -6,7 +6,7 @@ class ScheduledRelayChannel:
     self.schedule = schedule
     self.reasonForLastChange = "Never changed"
 
-def on(self):
+  def on(self):
     self.manuallyChangedReason(self.status(), "ON")
     return self.channel.on()
 
