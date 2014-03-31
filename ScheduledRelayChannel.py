@@ -2,22 +2,17 @@ import RelayChannel
 
 class ScheduledRelayChannel:
   def on(self):
-    self.reasonForLastChange = "Manually set from " + str(self.status()) + " to OFF"
+    self.manuallyChangedReason(self.status(), "ON")
     return self.channel.on()
 
-  def on(self, reason):
-    self.on()
-    self.reasonForLastChange += "because: " + str(reason)
-
   def off(self):
-    self.reasonForLastChange = "Manually set from " + str(self.status()) + " to OFF"
+    self.manuallyChangedReason(self.status(), "OFF")
     return self.channel.off()
 
-  def off(self, reason):
-    self.off()
-    self.reasonForLastChange += "because: " + str(reason)
- 
- def status(self):
+  def manuallyChangedReason(self, from, to):
+    self.reasonForLastChange = "Manually set from " + str(from) + " to " + str(to)
+
+  def status(self):
     return self.channel.status()
 
   def nextTimeAndAction(self):
