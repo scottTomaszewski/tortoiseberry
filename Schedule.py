@@ -6,4 +6,4 @@ class Schedule:
     return self.tasks
 
   def add(self, action, day, hour, minute):
-    self.tasks.append([action, day, hour, minute])
+    self.tasks.append({'action' : action, 'day' : day, 'hour' : hour, 'minute' : minute})
