@@ -3,7 +3,6 @@ import FakeRelayChannel
 import ScheduledRelayChannel
 import Schedule
 import time
-import atexit
 import sys
 import os
 import datetime
@@ -28,7 +27,6 @@ def fake():
       sys.exit(0)
     except SystemExit:
       os._exit(0)
- 
 
 def real():
   toTest = RelayChannel.RelayChannel(11)
