@@ -1,18 +1,9 @@
 class Schedule:
-  def __init__(self, action, day, hour, minute):
-    self.action = action
-    self.day = day
-    self.hour = hour
-    self.minute = minute
+  def __init__(self):
+    self.tasks = []
 
-  def action(self):
-    return self.action
+  def tasks(self):
+    return self.tasks
 
-  def day(self):
-    return self.day
-
-  def hour(self):
-    return self.hour
-
-  def minute(self):
-    return minute
+  def add(self, action, day, hour, minute):
+    self.tasks.append([action, day, hour, minute])
