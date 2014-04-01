@@ -2,10 +2,10 @@ import AttrDict
 
 class Schedule:
   def __init__(self):
-    self.tasks = []
+    self.taskList = []
 
   def tasks(self):
-    return self.tasks
+    return self.taskList
 
   def add(self, action, day, hour, minute):
-    self.tasks.append(AttrDict.AttrDict({'action' : action, 'day' : day, 'hour' : hour, 'minute' : minute}))
+    self.taskList.append(AttrDict.AttrDict({'action' : action, 'day' : day, 'hour' : hour, 'minute' : minute}))
