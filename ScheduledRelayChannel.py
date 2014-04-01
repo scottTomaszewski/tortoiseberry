@@ -26,6 +26,9 @@ class ScheduledRelayChannel:
   def enabled(boolean):
     self.enabled = boolean
 
+  def isEnabled(self):
+    return self.enabled
+  
   def scheduleOn(self):
     if self.enabled:
       return self.on()
