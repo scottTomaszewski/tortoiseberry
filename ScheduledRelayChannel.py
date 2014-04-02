@@ -8,7 +8,7 @@ class ScheduledRelayChannel:
     self.schedule = schedule
     self.enabled = True
     self.sched = Scheduler()
-    self.sched.daemonic = False
+#    self.sched.daemonic = False
     self.sched.start()
     for task in schedule.tasks():
       fun = self.scheduledOn if task.action == 'on' else self.scheduledOff
@@ -29,12 +29,12 @@ class ScheduledRelayChannel:
   def isEnabled(self):
     return self.enabled
   
-  def scheduleOn(self):
+  def scheduledOn(self):
     if self.enabled:
       return self.on()
     return 'Scheduled On not run because disabled'
 
-  def scheduleOff(self):
+  def scheduledOff(self):
     if self.enabled:
       return self.off()
     return 'Scheduled Off not run because disabled'
