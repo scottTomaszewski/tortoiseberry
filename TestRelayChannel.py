@@ -1,5 +1,4 @@
-#import RelayChannel
-import FakeRelayChannel
+import RelayChannel
 import ScheduledRelayChannel
 import Schedule
 import time
@@ -8,7 +7,7 @@ import os
 import datetime
 
 def fake():
-  channel = FakeRelayChannel.FakeRelayChannel()
+  channel = RelayChannel.RelayChannel(11)
   channel.on()
   channel.off()
   channel.status()
