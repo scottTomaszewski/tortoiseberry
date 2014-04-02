@@ -30,11 +30,13 @@ class ScheduledRelayChannel:
     return self.enabled
   
   def scheduledOn(self):
+    print "Schedule invoked: on"
     if self.enabled:
       return self.on()
     return 'Scheduled On not run because disabled'
 
   def scheduledOff(self):
+    print "Schedule invoked: off"
     if self.enabled:
       return self.off()
     return 'Scheduled Off not run because disabled'
