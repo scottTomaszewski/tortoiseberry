@@ -1,5 +1,4 @@
 import FakeRelayChannel
-#import RelayChannel
 from apscheduler.scheduler import Scheduler
 
 class ScheduledRelayChannel:
@@ -8,7 +7,6 @@ class ScheduledRelayChannel:
     self.schedule = schedule
     self.enabled = True
     self.sched = Scheduler()
-#    self.sched.daemonic = False
     self.sched.start()
     for task in schedule.tasks():
       fun = self.scheduledOn if task.action == 'on' else self.scheduledOff
