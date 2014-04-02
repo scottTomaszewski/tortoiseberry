@@ -4,12 +4,13 @@ class FakeRelayChannel:
 
   def on(self):
     self.last = "on"
-    print "on"
+    print "turning on"
 
   def off(self):
     self.last = "off"
-    print "off"
+    print "turning off"
 
   def status(self):
+    print "status: "
     print self.last
     return self.last
