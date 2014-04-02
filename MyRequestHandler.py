@@ -3,26 +3,16 @@ import CGIHTTPServer
 import sys
 import cgi
 
-#temp
-import random
-
 class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
-#  global super_important_list
-#  super_important_list = range(10)
-#  random.shuffle(super_important_list)
   global statusPage
   statusPage = StatusPage.StatusPage()
 
   def do_GET(s):
-    s.wfile.write(statusPage.content())
-
-#    """Respond to a POST request."""
-#    s.wfile.write("<html><head><title>Title goes here.</title></head>")
-#    s.wfile.write("<body><p>This is a test.</p>")
-#    s.wfile.write("<p>You accessed path: %s</p>" % s.path)
-#    s.wfile.write("<p>Also, super_important_list is:</p>")
-#    s.wfile.write(str(super_important_list))
-#    s.wfile.write("</body></html>")
+    """Respond to a GET request."""
+    s.send_response(200)
+    s.send_header("Content-type", "text/html")
+    s.end_headers()
+    s.wfile.write(str(statusPage.content()))
 
 #  def do_POST(s):    
 #    """Respond to a POST request."""
