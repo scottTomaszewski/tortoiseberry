@@ -24,8 +24,6 @@ class StatusPage:
     content += "<html><head><title>Spike!</title></head>"
     content += "<body><p>Spike Status:</p>"
     content += "<p>curr: "
-    content += str(datetime.datetime.now())
-    content += " "
     content += status
     content += "<p>"
     content += "</body></html>"
