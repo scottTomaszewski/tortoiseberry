@@ -7,10 +7,10 @@ import datetime
 
 class StatusPage:
   def __init__(self):
-    self.scheduled = self.light()
+    self.scheduled = self.spikeOverheadLight()
     self.scheduled.off()
 
-  def light(self):
+  def spikeOverheadLight(self):
     relayChannel = FakeRelayChannel.FakeRelayChannel()
     sched = Schedule.Schedule()
     now = datetime.datetime.now()
