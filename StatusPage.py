@@ -7,8 +7,8 @@ import datetime
 
 class StatusPage:
   def __init__(self):
-    self.scheduled = self.spikeOverheadLight()
-    self.scheduled.off()
+    self.overhead = self.spikeOverheadLight()
+    self.overhead.off()
 
   def spikeOverheadLight(self):
     relayChannel = FakeRelayChannel.FakeRelayChannel()
@@ -19,7 +19,7 @@ class StatusPage:
     return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
 
   def content(self):
-    status = self.scheduled.status()
+    status = self.overhead.status()
     content = ""
     content += "<html><head><title>Spike!</title></head>"
     content += "<body><p>Spike Status:</p>"
