@@ -1,4 +1,4 @@
-import FakeRelayChannel
+import RelayChannel
 import ScheduledRelayChannel
 import Schedule
 
@@ -11,7 +11,7 @@ class StatusPage:
     self.overhead.off()
 
   def spikeOverheadLight(self):
-    relayChannel = FakeRelayChannel.FakeRelayChannel()
+    relayChannel = RelayChannel.RelayChannel()
     sched = Schedule.Schedule()
     now = datetime.datetime.now()
     sched.add('on', '*', '*', str(now.minute+1))

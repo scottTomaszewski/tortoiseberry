@@ -1,4 +1,4 @@
-import FakeRelayChannel
+import RelayChannel
 from apscheduler.scheduler import Scheduler
 
 class ScheduledRelayChannel:
