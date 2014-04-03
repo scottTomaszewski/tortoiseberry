@@ -29,7 +29,7 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
 #    s.wfile.write("</body></html>")
 
 if __name__ == '__main__':
-  server_address = ('', 8000)
+  server_address = ('0.0.0.0', 8000)
   httpd = CGIHTTPServer.BaseHTTPServer.HTTPServer(server_address, MyRequestHandler)
   try:
     httpd.serve_forever()
