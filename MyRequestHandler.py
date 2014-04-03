@@ -1,7 +1,7 @@
 import StatusPage
 import CGIHTTPServer
 import sys
-import cgi
+import cgi, cgitb
 
 class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   global statusPage
