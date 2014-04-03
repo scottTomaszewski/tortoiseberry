@@ -14,6 +14,14 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
     s.send_header("Content-type", "text/html")
     s.end_headers()
     s.wfile.write(str(statusPage.content()))
+    overheadRadio = """
+    <form action="MyRequestHandler.py" method="get" target="_blank">
+    <input type="radio" name="overheadLight" value="on" /> On
+    <input type="radio" name="overheadLight" value="off" /> Off
+    <input type="submit" value="Submit" />
+    </form>
+    """
+    s.wfile.write(overheadRadio)
     overhead = form.getvalue('overheadLight')
     overhead = overhead if overhead else "Not set"
     s.wfile.write("overhead light set to" + str(overhead))
