@@ -8,11 +8,15 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   statusPage = StatusPage.StatusPage()
 
   def do_GET(s):
+    form = cgi.FieldStorage()
     """Respond to a GET request."""
     s.send_response(200)
     s.send_header("Content-type", "text/html")
     s.end_headers()
     s.wfile.write(str(statusPage.content()))
+    overhead = form.getvalue('overheadLight')
+    overhead = overhead if overhead else "Not set"
+    s.wfile.write("overhead light set to" + str(overhead))
 
 #  def do_POST(s):    
 #    """Respond to a POST request."""
