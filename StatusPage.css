@@ -15,7 +15,6 @@ html, body {
 }
 
 .statusBarItem {
-  display: inline-block;
   height: 12em;
   padding: 1em;
 }
@@ -25,6 +24,7 @@ html, body {
 }
 
 .statusBarCenter {
+  overflow: hidden;
   text-align: center;
 }
 
