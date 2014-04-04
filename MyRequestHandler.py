@@ -18,9 +18,7 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   def do_POST(s):    
     """Respond to a POST request."""
     form = cgi.FieldStorage(fp=s.rfile,headers=s.headers,environ={'REQUEST_METHOD':'POST','CONTENT_TYPE':s.headers['Content-Type'],})
-    overhead = form.getvalue('overheadLight')
-    overhead = overhead if overhead else "Not set"
-    print "Overhead: " + overhead
+    statusPage.parse(form)
     s.wfile.write(str(statusPage.content()))
 
 if __name__ == '__main__':

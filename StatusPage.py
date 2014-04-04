@@ -18,6 +18,15 @@ class StatusPage:
     sched.add('off', '*', '*', str(now.minute+2))
     return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
 
+  def parse(self, form):
+    overhead = form.getvalue('overheadLight')
+    if overhead == 'on':
+      self.overhead.on()
+    elif overhead == 'off':
+      self.overhead.off()
+    else:
+      print "" + str(overhead) + " is not a valid option for overhead lights"
+
   def content(self):
     status = self.overhead.status()
     content = ""
