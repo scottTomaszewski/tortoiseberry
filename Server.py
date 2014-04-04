@@ -3,7 +3,7 @@ import CGIHTTPServer
 import sys
 import cgi, cgitb
  
-class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
+class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   global statusPage
   statusPage = StatusPage.StatusPage()
 
@@ -23,7 +23,7 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
 
 if __name__ == '__main__':
   server_address = ('', 8000)
-  httpd = CGIHTTPServer.BaseHTTPServer.HTTPServer(server_address, MyRequestHandler)
+  httpd = CGIHTTPServer.BaseHTTPServer.HTTPServer(server_address, RequestHandler)
   try:
     httpd.serve_forever()
   except KeyboardInterrupt:
