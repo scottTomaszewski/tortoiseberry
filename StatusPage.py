@@ -29,7 +29,7 @@ class StatusPage:
     vars = {}
     vars['status'] = self.overhead.status()
     content = ""
-    html = open('htmlDesign.html','rb')
+    html = open('StatusPage.html','rb')
     for line in html:
       content += Template(line).substitute(vars)
       

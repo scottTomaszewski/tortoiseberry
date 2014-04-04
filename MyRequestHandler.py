@@ -8,8 +8,8 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   statusPage = StatusPage.StatusPage()
 
   def do_GET(s):
-    if s.path == '/statusPage.css':
-      s.wfile.write(open("statusPage.css").read())
+    if s.path == '/StatusPage.css':
+      s.wfile.write(open("StatusPage.css").read())
     else:
       s.send_response(200)
       s.send_header("Content-type", "text/html")
