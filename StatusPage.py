@@ -24,7 +24,14 @@ class StatusPage:
     content += "<html><head><title>Spike!</title></head>"
     content += "<body><p>Spike Status:</p>"
     content += "<p>curr: "
-    content += status
+    content += str(status)
     content += "<p>"
+    content += """
+    <form action="MyRequestHandler.py" method="post">
+      <input type="radio" name="overheadLight" value="on" /> On
+      <input type="radio" name="overheadLight" value="off" /> Off
+      <input type="submit" value="Submit" />
+    </form>
+    """
     content += "</body></html>"
     return content
