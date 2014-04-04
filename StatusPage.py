@@ -19,13 +19,10 @@ class StatusPage:
     return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
 
   def parse(self, form):
-    overhead = form.getvalue('overheadLight')
-    if overhead == 'on':
+    if 'overheadOn' in form:
       self.overhead.on()
-    elif overhead == 'off':
+    if 'overheadOff' in form:
       self.overhead.off()
-    else:
-      print "" + str(overhead) + " is not a valid option for overhead lights"
 
   def content(self):
     status = self.overhead.status()
@@ -37,9 +34,9 @@ class StatusPage:
     content += "<p>"
     content += """
     <form action="MyRequestHandler.py" method="post">
-      <input type="radio" name="overheadLight" value="on" /> On
-      <input type="radio" name="overheadLight" value="off" /> Off
-      <input type="submit" value="Submit" />
+      Overhead Light: 
+      <input type="submit" value="On" name='overheadOn' />
+      <input type="submit" value="Off" name='overheadOff' />
     </form>
     """
     content += "</body></html>"
