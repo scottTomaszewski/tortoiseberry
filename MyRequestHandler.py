@@ -8,10 +8,13 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   statusPage = StatusPage.StatusPage()
 
   def do_GET(s):
-    s.send_response(200)
-    s.send_header("Content-type", "text/html")
-    s.end_headers()
-    s.wfile.write(str(statusPage.content()))
+    if s.path == '/statusPage.css':
+      s.wfile.write(open("statusPage.css").read())
+    else:
+      s.send_response(200)
+      s.send_header("Content-type", "text/html")
+      s.end_headers()
+      s.wfile.write(str(statusPage.content()))
 
   def do_POST(s):    
     form = cgi.FieldStorage(fp=s.rfile,headers=s.headers,environ={'REQUEST_METHOD':'POST','CONTENT_TYPE':s.headers['Content-Type'],})
