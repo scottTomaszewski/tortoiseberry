@@ -1,2 +1,12 @@
-tank {}
-statusBar {}
+html {}
+
+#tank {
+  height: 70%;
+  width: 1000%;
+}
+
+#statusBar {
+  height: 30%;
+  width: 100%;
+  border: 1px solid black;
+}
