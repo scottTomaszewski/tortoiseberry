@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/StatusPage.css">
+    <link rel="stylesheet" type="text/css" href="StatusPage.css">
     <title>Spike!</title>
   </head>
   <body>
@@ -10,7 +11,7 @@
   
         </div>
         <div id='statusBar'>
-          <div id='uvbLightContainer' class='statusBarItem'>
+          <div id='uvbLightContainer' class='statusBarItem statusBarBlock statusBarLeft'>
             <div id='uvbLightTitle' class='statusBarItemTitle'>UVB Light</div>
             <div id='uvbLightStatus' class='statusBarToggleableStatus'>
               <p>${status}</p>
@@ -19,20 +20,30 @@
             </div>
             <div id='uvbLightFooter' class='statusBarItemFooter'>Scheduled</div>
           </div>
-          <div id='baskingLightContainer' class='statusBarItem'>
+          <div id='baskingLightContainer' class='statusBarItem statusBarBlock statusBarLeft'>
             <div id='baskingLightTitle' class='statusBarItemTitle'>Basking Light</div>
             <div id='baskingLightStatus' class='statusBarToggleableStatus'>OFF</div>
             <div id='baskingLightFooter' class='statusBarItemFooter'>Manual</div>
           </div>
-          <div id='centerContainer' class='statusBarItem'>
+          <div id='centerContainer' class='statusBarItem statusBarCenter'>
             <div id='timeContainer'>
               <div id='timeFormat'>04:52</div>
               <div id='timeUnit'>pm</div>
             </div>
           </div>
-          <div id='someContainer' class='statusBarItem'>
+          <div id='uvbLightContainer' class='statusBarItem statusBarBlock statusBarRight'>
+            <div id='uvbLightTitle' class='statusBarItemTitle'>UVB Light</div>
+            <div id='uvbLightStatus' class='statusBarToggleableStatus'>
+              <p>${status}</p>
+              <input type="submit" value="On" name='overheadOn' />
+              <input type="submit" value="Off" name='overheadOff' />
+            </div>
+            <div id='uvbLightFooter' class='statusBarItemFooter'>Scheduled</div>
           </div>
-          <div id='someOtherContainer' class='statusBarItem'>
+          <div id='baskingLightContainer' class='statusBarItem statusBarBlock statusBarRight'>
+            <div id='baskingLightTitle' class='statusBarItemTitle'>Basking Light</div>
+            <div id='baskingLightStatus' class='statusBarToggleableStatus'>OFF</div>
+            <div id='baskingLightFooter' class='statusBarItemFooter'>Manual</div>
           </div>
         </div>
       </div>
