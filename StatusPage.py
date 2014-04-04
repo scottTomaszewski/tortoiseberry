@@ -1,6 +1,7 @@
 import RelayChannel
 import ScheduledRelayChannel
 import Schedule
+from string import Template
 
 #temp
 import datetime
@@ -25,19 +26,25 @@ class StatusPage:
       self.overhead.off()
 
   def content(self):
-    status = self.overhead.status()
+    vars = {}
+    vars['status'] = self.overhead.status()
     content = ""
-    content += "<html><head><title>Spike!</title></head>"
-    content += "<body><p>Spike Status:</p>"
-    content += "<p>curr: "
-    content += str(status)
-    content += "<p>"
-    content += """
-    <form action="MyRequestHandler.py" method="post">
-      Overhead Light: 
-      <input type="submit" value="On" name='overheadOn' />
-      <input type="submit" value="Off" name='overheadOff' />
-    </form>
-    """
-    content += "</body></html>"
+    html = open('htmlDesign.html','rb')
+    for line in html:
+      content += Template(line).substitute(vars)
+      
+
+#    content += "<html><head><title>Spike!</title></head>"
+#    content += "<body><p>Spike Status:</p>"
+#    content += "<p>curr: "
+#    content += str(status)
+#    content += "<p>"
+#    content += """
+#    <form action="MyRequestHandler.py" method="post">
+#      Overhead Light: 
+#      <input type="submit" value="On" name='overheadOn' />
+#      <input type="submit" value="Off" name='overheadOff' />
+#    </form>
+#    """
+#    content += "</body></html>"
     return content
