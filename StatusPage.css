@@ -78,6 +78,7 @@ html, body {
  * Source: http://proto.io/freebies/onoff/ */
 
 .onoffswitch {
+  text-align: left;
   position: relative; 
   width: 119px;
   -webkit-user-select:none; 
