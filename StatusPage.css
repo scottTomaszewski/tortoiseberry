@@ -23,26 +23,48 @@ html, body {
 .statusBarItem {
   height: 12em;
   padding: 1em;
+  text-align: center;
 }
 
 .statusBarBlock {
   width: 12em;
-}
-
-.statusBarCenter {
-  overflow: hidden;
-  text-align: center;
+  color: #262626;
 }
 
 .statusBarRight {
   float: right;
-  text-align: right;
   border-left: 1px solid #cccccc;
 } 
 
 .statusBarLeft {
   float: left;
-  text-align: left;
   border-right: 1px solid #cccccc;
 }
 
+.statusBarItemTitle {
+  font-size: 1.75em;
+}
+
+.statusBarItemFooter {
+  font-size: 1.5em;
+  position: absolute;
+  bottom: 0;
+  width: 8em;
+  color:  #737373;
+}
+
+.statusBarCenter {
+  color: #262626;
+  overflow: hidden;
+  text-align: center;
+}
+
+#timeHourMinutes {
+  font-size: 9em;
+  display: inline-block;
+}
+
+#timeSeconds {
+  font-size: 3.5em;
+  display: inline-block;
+}
