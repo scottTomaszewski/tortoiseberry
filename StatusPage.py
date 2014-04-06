@@ -46,7 +46,7 @@ class StatusPage:
   def content(self):
     vars = {}
     vars['status'] = self.overhead.status()
-    vars['fooRange'] = self.rangeHtml('T', 50, 100, 73)
+    vars['topLeftTemp'] = self.rangeHtml('T', 50, 100, 73)
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
