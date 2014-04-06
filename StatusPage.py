@@ -27,11 +27,8 @@ class StatusPage:
       self.overhead.off()
 
   def rangeHtml(self, title, min, max, value):
-    html = """
-      <div class='rangeContainer'>
-        <div class='rangeTitle'>T</div>
-        <div class='rangeBar blueRedRange'>
-    """
+    html = "<div class='rangeTitle'>" + str(title) + "</div>"
+    html += "<div class='rangeBar blueRedRange'>"
     perc = float(value-min) / (max-min)
     mark = math.floor(perc * 41)
     for i in range(1, 41):
@@ -43,10 +40,7 @@ class StatusPage:
         html += "</div>"
       else:
         html += "<div class='rangeTick'></div>"
-    html += """
-      </div>
-    </div> 
-    """
+    html += "</div>"
     return html
 
   def content(self):
