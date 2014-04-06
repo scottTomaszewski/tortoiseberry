@@ -26,9 +26,9 @@ class StatusPage:
     if 'overheadOff' in form:
       self.overhead.off()
 
-  def rangeHtml(self, title, min, max, value):
+  def rangeHtml(self, title, min, max, value, cssBackground):
     html = "<div class='rangeTitle'>" + str(title) + "</div>"
-    html += "<div class='rangeBar blueRedRange'>"
+    html += "<div class='rangeBar " + cssBackground + "'>"
     perc = float(value-min) / (max-min)
     mark = math.floor(perc * 41)
     for i in range(1, 41):
@@ -43,10 +43,17 @@ class StatusPage:
     html += "</div>"
     return html
 
+  def temperatureRangeHtml(self, value):
+    return self.rangeHtml('T', 50, 100, value, 'blueRedRange')
+
+  def humidityRangeHtml(self, value):
+    return self.rangeHtml('H', 30, 90, value, 'redBlueRange')
+
   def content(self):
     vars = {}
     vars['status'] = self.overhead.status()
-    vars['topLeftTemp'] = self.rangeHtml('T', 50, 100, 73)
+    vars['topLeftTemp'] = self.temperatureRangeHtml(73)
+    vars['topLeftHumidity'] = self.humidityRangeHtml(68)
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
