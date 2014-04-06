@@ -11,11 +11,13 @@
     <form action="MyRequestHandler.py" method="post">
       <div id='content'>
         <div id='tank'>
-          <div id='topLeftTemp' class='rangeContainer'>
-            ${topLeftTemp} 
-          </div>
-          <div id='topLeftHumidity' class='rangeContainer'>
-            ${topLeftHumidity} 
+          <div id='topLeftTempHum' class='tempHumidityContainer'>
+            <div id='topLeftTemp' class='rangeContainer'>
+              ${topLeftTemp} 
+            </div>
+            <div id='topLeftHumidity' class='rangeContainer'>
+              ${topLeftHumidity} 
+            </div>
           </div>
         </div>
         <div id='statusBar'>
