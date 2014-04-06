@@ -11,9 +11,21 @@ html, body {
 }
 
 .rangeContainer {
+  padding: 1em;
+}
+
+.rangeTitle {
+  display: inline-block;
+  width: 4em;
+  font-size: 1.25em;
+  float: left;
+  padding-top: .75em;
+}
+
+.rangeBar {
+  display: inline-block;
   width: 30em;
   height: 3em;
-  margin: 1em;
 }
 
 .redBlueRange {
