@@ -13,6 +13,7 @@ html, body {
 .rangeContainer {
   width: 30em;
   height: 3em;
+  margin: 1em;
   background: -webkit-linear-gradient(left, red, blue);
   background: -o-linear-gradient(right, red, blue); 
   background: -moz-linear-gradient(right, red, blue); 
@@ -28,7 +29,6 @@ html, body {
   border-left: .25em solid white;
   border-right: .25em solid white;
   float: left;
-  float: bottom;
 }
 
 .rangeTickMed {
@@ -39,6 +39,16 @@ html, body {
 .rangeTickLarge {
   height: 2em;
   border-top: 0 solid white;
+}
+
+.rangeTickValue {
+  font-size: 1.75em;
+  position: absolute;
+  top: 1.5em;
+  width: 1.5em;
+  background: white;
+  text-align: center;
+  margin-left: -.63em;
 }
 
 /* STATUS BAR */
