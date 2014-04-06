@@ -13,7 +13,10 @@ html, body {
 .rangeContainer {
   width: 20.25em;
   height: 3em;
-  background: orange;
+  background: -webkit-linear-gradient(left, red , blue);
+  background: -o-linear-gradient(right, red, blue); 
+  background: -moz-linear-gradient(right, red, blue); 
+  background: linear-gradient(to right, red , blue); 
 }
 
 .rangeTick {
@@ -21,9 +24,9 @@ html, body {
   width: .25em;
   height: 1em;
   background: rgba(0,0,0,0);
-  border: 1em solid blue;
-  border-left: .25em solid blue;
-  border-right: .25em solid blue;
+  border: 1em solid white;
+  border-left: .25em solid white;
+  border-right: .25em solid white;
   float: left;
 }
 
