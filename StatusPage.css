@@ -16,10 +16,9 @@ html, body {
 
 .rangeTitle {
   display: inline-block;
-  width: 4em;
-  font-size: 1.25em;
+  width: .75em;
+  font-size: 2.25em;
   float: left;
-  padding-top: .75em;
 }
 
 .rangeBar {
