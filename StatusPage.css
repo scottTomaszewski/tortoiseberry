@@ -10,6 +10,25 @@ html, body {
   width: 1000%;
 }
 
+.rangeContainer {
+  width: 20.25em;
+  height: 3em;
+  background: orange;
+}
+
+.rangeTick {
+  display: inline-block;
+  width: .25em;
+  height: 1em;
+  background: rgba(0,0,0,0);
+  border: 1em solid blue;
+  border-left: .25em solid blue;
+  border-right: .25em solid blue;
+  float: left;
+}
+
+/* STATUS BAR */
+
 #statusBar {
   position: absolute;
   bottom: 0;
