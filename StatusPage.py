@@ -52,24 +52,9 @@ class StatusPage:
   def content(self):
     vars = {}
     vars['status'] = self.overhead.status()
-    vars['fooRange'] = self.rangeHtml('T', 50, 100, 78)
+    vars['fooRange'] = self.rangeHtml('T', 50, 100, 73)
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
       content += Template(line).substitute(vars)
-      
-
-#    content += "<html><head><title>Spike!</title></head>"
-#    content += "<body><p>Spike Status:</p>"
-#    content += "<p>curr: "
-#    content += str(status)
-#    content += "<p>"
-#    content += """
-#    <form action="MyRequestHandler.py" method="post">
-#      Overhead Light: 
-#      <input type="submit" value="On" name='overheadOn' />
-#      <input type="submit" value="Off" name='overheadOff' />
-#    </form>
-#    """
-#    content += "</body></html>"
     return content
