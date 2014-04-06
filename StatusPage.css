@@ -44,11 +44,11 @@ html, body {
 .rangeTickValue {
   font-size: 1.75em;
   position: absolute;
-  top: 1.5em;
+  margin-top: 1em;
   width: 1.5em;
   background: white;
   text-align: center;
-  margin-left: -.63em;
+  margin-left: -.64em;
 }
 
 /* STATUS BAR */
