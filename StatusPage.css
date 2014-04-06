@@ -11,7 +11,7 @@ html, body {
 }
 
 .rangeContainer {
-  width: 20.25em;
+  width: 30em;
   height: 3em;
   background: -webkit-linear-gradient(left, red , blue);
   background: -o-linear-gradient(right, red, blue); 
@@ -24,7 +24,7 @@ html, body {
   width: .25em;
   height: 1em;
   background: rgba(0,0,0,0);
-  border: 1em solid yellow;
+  border: 1em solid white;
   border-left: .25em solid white;
   border-right: .25em solid white;
   float: left;
