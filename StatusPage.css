@@ -14,10 +14,20 @@ html, body {
   width: 30em;
   height: 3em;
   margin: 1em;
+}
+
+.redBlueRange {
   background: -webkit-linear-gradient(left, red, blue);
   background: -o-linear-gradient(right, red, blue); 
   background: -moz-linear-gradient(right, red, blue); 
   background: linear-gradient(to right, red , blue); 
+}
+
+.blueRedRange {
+  background: -webkit-linear-gradient(left, blue, red);
+  background: -o-linear-gradient(right, blue, red); 
+  background: -moz-linear-gradient(right, blue, red); 
+  background: linear-gradient(to right,  blue, red); 
 }
 
 .rangeTick {
