@@ -24,10 +24,19 @@ html, body {
   width: .25em;
   height: 1em;
   background: rgba(0,0,0,0);
-  border: 1em solid white;
+  border: 1em solid yellow;
   border-left: .25em solid white;
   border-right: .25em solid white;
   float: left;
+  float: bottom;
+}
+
+.rangeTickMed {
+  height: 1.5em;
+}
+
+.rangeTickLarge {
+  height: 2em;
 }
 
 /* STATUS BAR */
