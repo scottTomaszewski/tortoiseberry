@@ -18,7 +18,7 @@ html, body {
 
 .rangeTitle {
   display: inline-block;
-  width: .75em;
+  width: 1em;
   font-size: 2.25em;
   float: left;
 }
@@ -29,11 +29,25 @@ html, body {
   height: 3em;
 }
 
+.redBlueFullRange {
+  background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, purple);
+  background: -o-linear-gradient(right, red, orange, yellow, green, blue, purple); 
+  background: -moz-linear-gradient(right, red, orange, yellow, green, blue, purple); 
+  background: linear-gradient(to right, red, orange, yellow, green, blue, purple); 
+}
+
 .redBlueRange {
   background: -webkit-linear-gradient(left, red, blue);
   background: -o-linear-gradient(right, red, blue); 
   background: -moz-linear-gradient(right, red, blue); 
   background: linear-gradient(to right, red , blue); 
+}
+
+.blueRedFullRange {
+  background: -webkit-linear-gradient(left, purple, blue, green, yellow, orange, red);
+  background: -o-linear-gradient(right, purple, blue, green, yellow, orange, red); 
+  background: -moz-linear-gradient(right, purple, blue, green, yellow, orange, red); 
+  background: linear-gradient(to right, purple, blue, green, yellow, orange, red); 
 }
 
 .blueRedRange {

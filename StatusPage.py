@@ -44,10 +44,10 @@ class StatusPage:
     return html
 
   def temperatureRangeHtml(self, value):
-    return self.rangeHtml('T', 50, 100, value, 'blueRedRange')
+    return self.rangeHtml('T', 50, 100, value, 'blueRedFullRange')
 
   def humidityRangeHtml(self, value):
-    return self.rangeHtml('H', 30, 90, value, 'redBlueRange')
+    return self.rangeHtml('H', 30, 90, value, 'redBlueFullRange')
 
   def content(self):
     vars = {}
