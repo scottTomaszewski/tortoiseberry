@@ -51,7 +51,7 @@ class StatusPage:
 
   def content(self):
     vars = {}
-    vars['status'] = 'OFF' if self.overhead.status() == 1 else 'ON'
+    vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
     vars['topLeftTemp'] = self.temperatureRangeHtml(73)
     vars['topLeftHumidity'] = self.humidityRangeHtml(68)
     content = ""
