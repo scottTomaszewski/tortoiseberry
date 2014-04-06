@@ -32,14 +32,14 @@ class StatusPage:
         <div class='rangeTitle'>T</div>
         <div class='rangeBar blueRedRange'>
     """
-    perc = (value-min) / (max-min)
-    mark = math.floor(perc * 39)
-    for i in range(1..39):
+    perc = float(value-min) / (max-min)
+    mark = math.floor(perc * 41)
+    for i in range(1, 41):
       if i == mark-1 or i == mark+1:
         html += "<div class='rangeTick rangeTickMed'></div>"
       elif i == mark:
         html += "<div class='rangeTick rangeTickLarge'>"
-        html += "  <div class='rangeTickValue'>" + value + "</div>"
+        html += "  <div class='rangeTickValue'>" + str(value) + "</div>"
         html += "</div>"
       else:
         html += "<div class='rangeTick'></div>"
@@ -52,7 +52,7 @@ class StatusPage:
   def content(self):
     vars = {}
     vars['status'] = self.overhead.status()
-    vars['fooRange'] = self.rangeHtml()
+    vars['fooRange'] = self.rangeHtml('T', 50, 100, 78)
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
