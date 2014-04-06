@@ -10,6 +10,8 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   def do_GET(s):
     if s.path == '/StatusPage.css':
       s.wfile.write(open("StatusPage.css").read())
+    elif s.path == '/StatusPage.js':
+      s.wfile.write(open("StatusPage.js").read())
     else:
       s.send_response(200)
       s.send_header("Content-type", "text/html")
