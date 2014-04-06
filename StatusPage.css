@@ -12,6 +12,7 @@ html, body {
 
 .rangeContainer {
   padding: 1em;
+  padding-bottom: 1.5em;
 }
 
 .rangeTitle {
