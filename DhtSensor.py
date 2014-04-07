@@ -11,7 +11,6 @@ class DhtSensor:
 
   def temperature(self):
     out = self.dht()
-    print out
     if "Temp" in out:
       return float(out[out.index("Temp"):].split()[2])
     return -1
