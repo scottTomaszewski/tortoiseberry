@@ -55,7 +55,7 @@ class StatusPage:
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
     print self.topLeftDHT.temperature()
-    vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperature())
+    vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
     vars['topLeftHumidity'] = self.humidityRangeHtml(self.topLeftDHT.humidity())
     content = ""
     html = open('StatusPage.html','rb')
