@@ -6,13 +6,13 @@ class DhtSensor:
   def humidity(self):
     out = self.dht()
     if "Hum" in out:
-      return out[out.index("Hum"):].split()[2]
+      return int(float(out[out.index("Hum"):].split()[2]))
     return -1
 
   def temperature(self):
     out = self.dht()
     if "Temp" in out:
-      return out[out.index("Temp"):].split()[2]
+      return int(float(out[out.index("Temp"):].split()[2]))
     return -1
 
   def dht(self):

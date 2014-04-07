@@ -1,6 +1,7 @@
 import RelayChannel
 import ScheduledRelayChannel
 import Schedule
+import DhtSensor
 from string import Template
 import math
 
@@ -11,6 +12,7 @@ class StatusPage:
   def __init__(self):
     self.overhead = self.spikeOverheadLight()
     self.overhead.off()
+    self.topLeftDHT = DhtSensor.DhtSensor(4)
 
   def spikeOverheadLight(self):
     relayChannel = RelayChannel.RelayChannel(11)
@@ -52,8 +54,9 @@ class StatusPage:
   def content(self):
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
-    vars['topLeftTemp'] = self.temperatureRangeHtml(73)
-    vars['topLeftHumidity'] = self.humidityRangeHtml(68)
+    print self.topLeftDHT.temperature()
+    vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperature())
+    vars['topLeftHumidity'] = self.humidityRangeHtml(self.topLeftDHT.humidity())
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
