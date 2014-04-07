@@ -26,7 +26,7 @@ html, body {
 
 .rangeBar {
   display: inline-block;
-  width: 30em;
+  width: 30.25em;
   height: 3em;
 }
 
@@ -60,7 +60,7 @@ html, body {
 
 .rangeTick {
   display: inline-block;
-  width: .25em;
+  width: 3px;
   height: 1em;
   background: rgba(0,0,0,0);
   border: 1em solid #97FF89;
@@ -71,7 +71,7 @@ html, body {
 
 .rangeTickMed {
   height: 1.5em;
-  border-top: .5em solid #97FF89;
+  border-top: .6em solid #97FF89;
 }
 
 .rangeTickLarge {
@@ -83,10 +83,10 @@ html, body {
   font-size: 1.75em;
   position: absolute;
   margin-top: 1em;
-  width: 1.5em;
+  width: 1.25em;
   background: #97FF89;
   text-align: center;
-  margin-left: -.64em;
+  margin-left: -.55em;
 }
 
 /* STATUS BAR */
