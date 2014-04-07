@@ -29,10 +29,10 @@ html, body {
 }
 
 .redBlueFullRange {
-  background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, purple);
-  background: -o-linear-gradient(right, red, orange, yellow, green, blue, purple); 
-  background: -moz-linear-gradient(right, red, orange, yellow, green, blue, purple); 
-  background: linear-gradient(to right, red, orange, yellow, green, blue, purple); 
+  background: -webkit-linear-gradient(left, red, #36F21D, blue);
+  background: -o-linear-gradient(right, red, #36F21D, blue); 
+  background: -moz-linear-gradient(right, red, #36F21D, blue); 
+  background: linear-gradient(to right, red, #36F21D, blue); 
 }
 
 .redBlueRange {
@@ -43,10 +43,10 @@ html, body {
 }
 
 .blueRedFullRange {
-  background: -webkit-linear-gradient(left, purple, blue, green, yellow, orange, red);
-  background: -o-linear-gradient(right, purple, blue, green, yellow, orange, red); 
-  background: -moz-linear-gradient(right, purple, blue, green, yellow, orange, red); 
-  background: linear-gradient(to right, purple, blue, green, yellow, orange, red); 
+  background: -webkit-linear-gradient(left, blue, #36F21D, red);
+  background: -o-linear-gradient(right, blue, #36F21D, red);
+  background: -moz-linear-gradient(right,blue, #36F21D, red);
+  background: linear-gradient(to right, blue, #36F21D, red);
 }
 
 .blueRedRange {
