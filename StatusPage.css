@@ -4,6 +4,7 @@ html, body {
   margin: 0;
   top: 0;
   left: 0;
+  background: #97FF89;
 }
 
 #tank {
@@ -61,20 +62,20 @@ html, body {
   width: .25em;
   height: 1em;
   background: rgba(0,0,0,0);
-  border: 1em solid white;
-  border-left: .25em solid white;
-  border-right: .25em solid white;
+  border: 1em solid #97FF89;
+  border-left: .25em solid #97FF89;
+  border-right: .25em solid #97FF89;
   float: left;
 }
 
 .rangeTickMed {
   height: 1.5em;
-  border-top: .5em solid white;
+  border-top: .5em solid #97FF89;
 }
 
 .rangeTickLarge {
   height: 2em;
-  border-top: 0 solid white;
+  border-top: 0 solid #97FF89;
 }
 
 .rangeTickValue {
@@ -82,7 +83,7 @@ html, body {
   position: absolute;
   margin-top: 1em;
   width: 1.5em;
-  background: white;
+  background: #97FF89;
   text-align: center;
   margin-left: -.64em;
 }
