@@ -12,6 +12,8 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
       s.wfile.write(open("StatusPage.css").read())
     elif s.path == '/StatusPage.js':
       s.wfile.write(open("StatusPage.js").read())
+    elif s.path == '/favicon.ico':
+      s.wfile.write(open("favicon.ico").read())
     else:
       s.send_response(200)
       s.send_header("Content-type", "text/html")
