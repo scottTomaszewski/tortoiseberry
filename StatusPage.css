@@ -126,7 +126,11 @@ html, body {
 
 .statusBarItemBody {
   padding-top: 10px;
-  font-size: 3em;
+  font-size: 5em;
+}
+
+.statusBarItemToggleable {
+  height: .5em;
 }
 
 .statusBarItemFooter {
