@@ -8,17 +8,19 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   statusPage = StatusPage.StatusPage()
 
   def do_GET(s):
-    if s.path == '/StatusPage.css':
-      s.wfile.write(open("StatusPage.css").read())
-    elif s.path == '/StatusPage.js':
-      s.wfile.write(open("StatusPage.js").read())
-    elif s.path == '/favicon.ico':
-      s.wfile.write(open("favicon.ico").read())
-    else:
+#    if s.path == '/StatusPage.css':
+#      s.wfile.write(open("StatusPage.css").read())
+#    elif s.path == '/StatusPage.js':
+#      s.wfile.write(open("StatusPage.js").read())
+#    elif s.path == '/favicon.ico':
+#      s.wfile.write(open("favicon.ico").read())
+    if s.path == '/foo':
       s.send_response(200)
       s.send_header("Content-type", "text/html")
       s.end_headers()
       s.wfile.write(str(statusPage.content()))
+    else:
+      return super(RequestHandler, self).do_GET(s)
 
   def do_POST(s):    
     form = cgi.FieldStorage(fp=s.rfile,headers=s.headers,environ={'REQUEST_METHOD':'POST','CONTENT_TYPE':s.headers['Content-Type'],})
