@@ -12,12 +12,6 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
     CGIHTTPServer.CGIHTTPRequestHandler.__init__(self, request, client_address, server)
 
   def do_GET(s):
-#    if s.path == '/StatusPage.css':
-#      s.wfile.write(open("StatusPage.css").read())
-#    elif s.path == '/StatusPage.js':
-#      s.wfile.write(open("StatusPage.js").read())
-#    elif s.path == '/favicon.ico':
-#      s.wfile.write(open("favicon.ico").read())
     if s.path == '/':
       s.send_response(200)
       s.send_header("Content-type", "text/html")
