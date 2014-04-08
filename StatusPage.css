@@ -13,6 +13,16 @@ html, body {
   color: #36F21D;
 }
 
+.tempHumidityContainer {
+  position: absolute;
+  background: #222;
+  border-bottom: 1px solid #145F0A;
+  border-right: 1px solid #145F0A;
+  border-radius: 0 5em 5em 0;
+  padding-bottom: .75em;
+  padding-right: 2em;
+}
+
 .rangeContainer {
   padding: .5em;
 }
