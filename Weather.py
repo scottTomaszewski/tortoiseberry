@@ -26,7 +26,6 @@ class Weather:
       jsonWeather = urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?id=4049032").read()
       self.weather = json.loads(jsonWeather)
       self.lastChecked = time.time()
-      print 'fresh'
     return self.weather
 
   def k2c(self, t):
