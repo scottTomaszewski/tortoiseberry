@@ -1,11 +1,15 @@
 import StatusPage
 import CGIHTTPServer
+from CGIHTTPServer import CGIHTTPRequestHandler
 import sys
 import cgi, cgitb
  
 class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   global statusPage
   statusPage = StatusPage.StatusPage()
+
+  def __init__(self, request, client_address, server):
+    CGIHTTPServer.CGIHTTPRequestHandler.__init__(self, request, client_address, server)
 
   def do_GET(s):
 #    if s.path == '/StatusPage.css':
@@ -20,7 +24,7 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
       s.end_headers()
       s.wfile.write(str(statusPage.content()))
     else:
-      return super(RequestHandler, self).do_GET(s)
+      CGIHTTPServer.CGIHTTPRequestHandler.do_GET(s)
 
   def do_POST(s):    
     form = cgi.FieldStorage(fp=s.rfile,headers=s.headers,environ={'REQUEST_METHOD':'POST','CONTENT_TYPE':s.headers['Content-Type'],})
