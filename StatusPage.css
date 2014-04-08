@@ -170,6 +170,29 @@ html, body {
   display: inline-block;
 }
 
+#tempContainer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 12em;
+}
+
+.weatherTemp {
+  display: inline-block;
+}
+
+.middleWeatherTemp {
+  font-size: 6em;
+  overflow: hidden;
+  height: 1.2em;
+}
+
+.sideWeatherTemp {
+  font-size: 2em;
+  color: #145F0A;
+  vertical-align: bottom;
+}
+
 /* On/Off switch Begin
  * Source: http://proto.io/freebies/onoff/ */
 

@@ -49,14 +49,15 @@
             <div id='baskingLightStatus' class='statusBarToggleableStatus'>OFF</div>
             <div id='baskingLightFooter' class='statusBarItemFooter'>Manual</div>
           </div>
-          <div id='uvbLightContainer' class='statusBarItem statusBarBlock statusBarRight'>
-            <div id='uvbLightTitle' class='statusBarItemTitle'>UVB Light</div>
-            <div id='uvbLightBody' class='statusBarItemBody'>
-              <div id='uvbLightStatus' class='statusBarItemToggleable'>${uvbStatus}</div>
-              <input type="submit" value="On" name='overheadOn' />
-              <input type="submit" value="Off" name='overheadOff' />
+          <div id='weatherContainer' class='statusBarItem statusBarBlock statusBarRight'>
+            <div id='iconContainer'>
+              <img src='http://openweathermap.org/img/w/10d.png'/>
             </div>
-            <div id='uvbLightFooter' class='statusBarItemFooter'>Scheduled</div>
+            <div id='tempContainer'>
+              <div id='minTemp' class='sideWeatherTemp weatherTemp'>58</div>
+              <div id='minTemp' class='middleWeatherTemp weatherTemp'>62</div>
+              <div id='minTemp' class='sideWeatherTemp weatherTemp'>65</div>
+            </div>
           </div>
           <div id='baskingLightContainer' class='statusBarItem statusBarBlock statusBarRight'>
             <div id='baskingLightTitle' class='statusBarItemTitle'>Basking Light</div>
