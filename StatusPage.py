@@ -4,6 +4,7 @@ import Schedule
 import DhtSensor
 from string import Template
 import math
+import Weather
 
 #temp
 import datetime
@@ -13,6 +14,7 @@ class StatusPage:
     self.overhead = self.spikeOverheadLight()
     self.overhead.off()
     self.topLeftDHT = DhtSensor.DhtSensor(4)
+    self.weather = Weather.Weather()
 
   def spikeOverheadLight(self):
     relayChannel = RelayChannel.RelayChannel(11)
@@ -57,6 +59,9 @@ class StatusPage:
     print self.topLeftDHT.temperature()
     vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
     vars['topLeftHumidity'] = self.humidityRangeHtml(self.topLeftDHT.humidity())
+    vars['outsideTemp'] = self.weather.temperature()
+    vars['outsideMinTemp'] = self.weather.tempMin()
+    vars['outsideMaxTemp'] = self.weather.tempMax()
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
