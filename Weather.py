@@ -16,6 +16,10 @@ class Weather:
   def tempLow(self):
     return self.k2f(self.data()['main']['temp_min'])
 
+  def iconURL(self):
+    icon = self.data()['weather'][0]['icon']
+    return "http://openweathermap.org/img/w/" + icon + ".png"
+
   def data(self):
     fiveMinutes = 300
     if self.lastChecked == None or time.time() - self.lastChecked > fiveMinutes:
