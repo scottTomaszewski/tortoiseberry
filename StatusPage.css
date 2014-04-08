@@ -111,7 +111,7 @@ html, body {
   float: bottom;
   background: #222;
   color: #36F21D;
-  border-top: 1px solid black;
+  border-top: 1px solid #145F0A;
 }
 
 .statusBarItem {
