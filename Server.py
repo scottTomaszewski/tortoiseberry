@@ -12,7 +12,7 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
     CGIHTTPServer.CGIHTTPRequestHandler.__init__(self, request, client_address, server)
 
   def do_GET(s):
-    if s.path == '/' or s.path == '/MyRequestHandler.py':
+    if s.path == '/':
       s.send_response(200)
       s.send_header("Content-type", "text/html")
       s.end_headers()
