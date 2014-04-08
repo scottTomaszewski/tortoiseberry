@@ -5,12 +5,12 @@ html, body {
   margin: 0;
   top: 0;
   left: 0;
-  background: #97FF89;
+  background: radial-gradient(#36F21D, #222);
 }
 
 #tank {
   width: 1000%;
-  color: #222;
+  color: #36F21D;
 }
 
 .rangeContainer {
@@ -22,6 +22,7 @@ html, body {
   width: 1em;
   font-size: 2.25em;
   float: left;
+  color: #888;
 }
 
 .rangeBar {
@@ -63,20 +64,20 @@ html, body {
   width: 3px;
   height: 1.1em;
   background: rgba(0,0,0,0);
-  border: 1em solid #97FF89;
-  border-left: .25em solid #97FF89;
-  border-right: .25em solid #97FF89;
+  border: 1em solid #222;
+  border-left: .25em solid #222;
+  border-right: .25em solid #222;
   float: left;
 }
 
 .rangeTickMed {
   height: 1.5em;
-  border-top: .6em solid #97FF89;
+  border-top: .6em solid #222;
 }
 
 .rangeTickLarge {
   height: 2em;
-  border-top: 0 solid #97FF89;
+  border-top: 0 solid #222;
 }
 
 .rangeTickValue {
@@ -84,9 +85,10 @@ html, body {
   position: absolute;
   margin-top: 1em;
   width: 1.25em;
-  background: #97FF89;
+  background: #222;
   text-align: center;
   margin-left: -.55em;
+  color: #888;
 }
 
 /* STATUS BAR */
@@ -97,8 +99,9 @@ html, body {
   left: 0;
   right: 0;
   float: bottom;
-  background: #f5f5f5;
-  border-top: 1px solid #999;
+  background: #222;
+  color: #36F21D;
+  border-top: 1px solid black;
 }
 
 .statusBarItem {
@@ -109,17 +112,16 @@ html, body {
 
 .statusBarBlock {
   width: 12em;
-  color: #262626;
 }
 
 .statusBarRight {
   float: right;
-  border-left: 1px solid #cccccc;
+  border-left: 1px solid #145F0A;
 } 
 
 .statusBarLeft {
   float: left;
-  border-right: 1px solid #cccccc;
+  border-right: 1px solid #145F0A;
 }
 
 .statusBarItemTitle {
@@ -140,11 +142,10 @@ html, body {
   position: absolute;
   bottom: 0;
   width: 8em;
-  color:  #737373;
+  color:  #888;
 }
 
 .statusBarCenter {
-  color: #262626;
   overflow: hidden;
   text-align: center;
 }
