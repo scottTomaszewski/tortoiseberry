@@ -10,6 +10,12 @@ class Weather:
   def temperature(self):
     return self.k2f(self.data()['main']['temp'])
 
+  def tempHigh(self):
+    return self.k2f(self.data()['main']['temp_max'])
+
+  def tempLow(self):
+    return self.k2f(self.data()['main']['temp_min'])
+
   def data(self):
     fiveMinutes = 300
     if self.lastChecked == None or time.time() - self.lastChecked > fiveMinutes:
