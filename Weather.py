@@ -20,6 +20,10 @@ class Weather:
     icon = self.data()['weather'][0]['icon']
     return "http://openweathermap.org/img/w/" + icon + ".png"
 
+  def icon(self):
+    id = self.data()['weather'][0]['id']
+    return '/images/' + str(codeToIcon(id))
+
   def data(self):
     fiveMinutes = 300
     if self.lastChecked == None or time.time() - self.lastChecked > fiveMinutes:
@@ -34,7 +38,8 @@ class Weather:
   def k2f(self, t):
     return (t*9/5.0)-459.67
   
-  def codeToIcon(self, code):
+  def codeToIcon(self, codeString):
+    code = int(codeString)
     if code >= 200 and code < 300:
       return 'storm.png'
     if code >= 300 and code < 400:
