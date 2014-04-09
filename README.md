@@ -4,10 +4,11 @@ tortoiseberry
 Tortoise tank sensor management via a raspberry pi
 
     git clone git@github.com:scottTomaszewski/tortoiseberry.git
+    cd tortoiseberry
     git submodule update --init
 
-Requires APScheduler
+External Requirements 
 
-http://pythonhosted.org/APScheduler/#installing-apscheduler
+APScheduler - http://pythonhosted.org/APScheduler/#installing-apscheduler
 
     pip install apscheduler
