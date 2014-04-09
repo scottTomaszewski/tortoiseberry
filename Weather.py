@@ -34,3 +34,33 @@ class Weather:
   def k2f(self, t):
     return (t*9/5.0)-459.67
   
+  def codeToIcon(self, code):
+    if code >= 200 and code < 300:
+      return 'storm.png'
+    if code >= 300 and code < 400:
+      return 'chance of rain.png'
+    if code == 511:
+      return 'rain snow.png'
+    if code >= 500 and code < 600:
+      return 'rain.png'
+    if code == 600:
+      return 'light snow.png'
+    if code >= 601 and code < 612:
+      return 'snow.png'
+    if code >= 612 and code < 700:
+      return 'icy.png'
+    if code >= 701 and code < 722:
+        return 'mist.png'
+    if code >= 731 and code < 800:
+      return 'fog.png'
+    if code == 800:
+      return 'sunny.png'
+    if code == 801:
+      return 'mostly sunny.png'
+    if code == 802:
+      return 'partly sunny.png'
+    if code == 803:
+      return 'partly cloudy.png'
+    if code == 804:
+      return 'mostly cloudy.png'
+    return 'unknown.png'
