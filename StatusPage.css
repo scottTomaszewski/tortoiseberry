@@ -17,26 +17,26 @@ html, body {
   position: absolute;
   background: #222;
   border-bottom: 1px solid #145F0A;
-  border-right: 1px solid #145F0A;
-  border-radius: 0 5em 5em 0;
   padding-bottom: .75em;
-  padding-right: 2em;
   height: 8em;
 }
 
-#topRightTempHum {
-  right: 0;
-  position: absolute;
+.leftTempHum {
+  border-radius: 0 5em 5em 0;
+  padding-right: 2em;
+  border-right: 1px solid #145F0A;
 }
 
-#bottomLeftTempHum {
+.rightTempHum {
+  border-radius: 5em 0 0  5em;
+  text-align: right;
+  border-left: 1px solid #145F0A;
+  padding-left: 2em;
+  right: 0;
+}
+
+.bottomTempHum {
   bottom: 14em;
-  vertical-align: bottom;
-}
-
-#bottomRightTempHum {
-  right: 0;
-  bottom: 12em;
 }
 
 .rangeContainer {
