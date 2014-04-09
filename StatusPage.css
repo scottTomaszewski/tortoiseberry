@@ -177,6 +177,11 @@ html, body {
   width: 12em;
 }
 
+#weatherIcon {
+  width: 10em;
+  margin-top: -2em;
+}
+
 .weatherTemp {
   display: inline-block;
 }
