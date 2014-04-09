@@ -21,6 +21,22 @@ html, body {
   border-radius: 0 5em 5em 0;
   padding-bottom: .75em;
   padding-right: 2em;
+  height: 8em;
+}
+
+#topRightTempHum {
+  right: 0;
+  position: absolute;
+}
+
+#bottomLeftTempHum {
+  bottom: 14em;
+  vertical-align: bottom;
+}
+
+#bottomRightTempHum {
+  right: 0;
+  bottom: 12em;
 }
 
 .rangeContainer {
