@@ -21,17 +21,19 @@ class DhtSensor:
   def dht(self):
     # refresh only if 2 seconds has expired
     if (self.lastReadTime == None or time.time() - self.lastReadTime > 5 or 'Temp' not in self.lastRead):
-      p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "2302", str(self.pin)], stdout=subprocess.PIPE)
+      p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", str(self.model), str(self.pin)], stdout=subprocess.PIPE)
       self.lastRead = p.communicate()[0]
       self.lastReadTime = time.time()
+      print self.lastRead
     if 'Temp' not in self.lastRead:
       return self.dht()
     return self.lastRead
 
-  def __init__(self, pin):
+  def __init__(self, pin, model):
     if not str(pin).isdigit():
       raise Exception("invalid argument: pin expected to be positive int")
     self.pin = pin
+    self.model = model
     self.lastRead = None
     self.lastReadTime = None
     self.dht()

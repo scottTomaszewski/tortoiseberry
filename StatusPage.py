@@ -15,7 +15,8 @@ class StatusPage:
     self.overhead.off()
     #self.basking = self.spikeBaskingLight()
     #self.basking.off()
-    self.topLeftDHT = DhtSensor.DhtSensor(4)
+    self.topLeftDHT = DhtSensor.DhtSensor(4, 22)
+    self.topRightDHT = DhtSensor.DhtSensor(14, 11)
     self.weather = Weather.Weather()
 
   def spikeOverheadLight(self):
@@ -71,7 +72,9 @@ class StatusPage:
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
     vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
+    vars['topRightTemp'] = self.temperatureRangeHtml(self.topRightDHT.temperatureF())
     vars['topLeftHumidity'] = self.humidityRangeHtml(self.topLeftDHT.humidity())
+    vars['topRightHumidity'] = self.humidityRangeHtml(self.topRightDHT.humidity())
     vars['outsideTemp'] = int(self.weather.temperature())
     vars['outsideMinTemp'] = int(self.weather.tempLow())
     vars['outsideMaxTemp'] = int(self.weather.tempHigh())
