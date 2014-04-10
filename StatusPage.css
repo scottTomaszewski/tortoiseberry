@@ -21,6 +21,8 @@ html, body {
   right: 0;
   background: #222;
   text-align: center;
+  border-radius: 0 0 1em 1em;
+  padding-bottom: .25em;
 }
 
 .tempHumidityContainer {
