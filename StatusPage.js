@@ -13,8 +13,6 @@ function startTime() {
   document.getElementById('timeSeconds').innerHTML=s;
   t=setTimeout(function(){ startTime() },500);
 }
- 
-function foo() { alert("bar"); }
 
 function checkTime(i) {
   if (i<10) {
