@@ -202,6 +202,14 @@ html, body {
   display: inline-block;
 }
 
+#dateContainer {
+  margin: 0 auto;
+  font-size: 3em;
+  bottom: 0em;
+  left: 0;
+  right: 0;
+}
+
 #tempContainer {
   position: absolute;
   bottom: 0;
