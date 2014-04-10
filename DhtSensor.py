@@ -19,9 +19,9 @@ class DhtSensor:
     return int(float(9.0/5.0 * self.temperature() + 32))
 
   def dht(self):
-    return self.dht(3)
+    return self.dhtTimeout(3)
 
-  def dht(self, count):
+  def dhtTimeout(self, count):
     # refresh only if 2 seconds has expired
     if (self.lastReadTime == None or time.time() - self.lastReadTime > 5 or 'Temp' not in self.lastRead):
       p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", str(self.model), str(self.pin)], stdout=subprocess.PIPE)
@@ -29,7 +29,7 @@ class DhtSensor:
       self.lastReadTime = time.time()
       print self.lastRead
     if 'Temp' not in self.lastRead:
-      return self.dht(count-1)
+      return self.dhtTimeout(count-1)
     return self.lastRead
 
   def __init__(self, pin, model):
