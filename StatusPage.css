@@ -9,8 +9,18 @@ html, body {
 }
 
 #tank {
-  width: 1000%;
+  width: 100%;
   color: #36F21D;
+}
+
+#utilBar {
+  position: absolute;
+  width: 30em;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  background: #222;
+  text-align: center;
 }
 
 .tempHumidityContainer {
