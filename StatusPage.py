@@ -40,9 +40,9 @@ class StatusPage:
     if 'overheadOff' in form:
       self.overhead.off()
     if 'baskingOn' in form:
-      self.overhead.on()
+      self.basking.on()
     if 'baskingOff' in form:
-      self.overhead.off()
+      self.basking.off()
 
   def rangeHtml(self, title, min, max, value, cssBackground):
     html = "<div class='rangeTitle'>" + str(title) + "</div>"
