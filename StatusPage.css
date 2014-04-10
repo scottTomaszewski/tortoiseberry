@@ -188,6 +188,10 @@ html, body {
   text-align: center;
 }
 
+#timeContainer {
+  margin-top: -2em;
+}
+
 #timeHourMinutes {
   font-size: 10em;
   display: inline-block;
