@@ -48,7 +48,7 @@ class StatusPage:
     html = "<div class='rangeTitle'>" + str(title) + "</div>"
     html += "<div class='rangeBar " + cssBackground + "'>"
     perc = float(value-min) / (max-min)
-    mark = math.floor(perc * 45)
+    mark = math.floor(perc * 45) if perc > 0 else 1
     for i in range(1, 45):
       if i == mark-1 or i == mark+1:
         html += "<div class='rangeTick rangeTickMed'></div>"
