@@ -13,8 +13,8 @@ class StatusPage:
   def __init__(self):
     self.overhead = self.spikeOverheadLight()
     self.overhead.off()
-    self.basking = self.spikeBaskingLight()
-    self.basking.off()
+    #self.basking = self.spikeBaskingLight()
+    #self.basking.off()
     self.topLeftDHT = DhtSensor.DhtSensor(4)
     self.weather = Weather.Weather()
 
