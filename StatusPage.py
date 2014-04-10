@@ -13,6 +13,8 @@ class StatusPage:
   def __init__(self):
     self.overhead = self.spikeOverheadLight()
     self.overhead.off()
+    self.basking = self.spikeBaskingLight()
+    self.basking.off()
     self.topLeftDHT = DhtSensor.DhtSensor(4)
     self.weather = Weather.Weather()
 
@@ -24,10 +26,22 @@ class StatusPage:
     sched.add('off', '*', '*', str(now.minute+2))
     return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
 
+  def spikeBaskingLight(self):
+    relayChannel = RelayChannel.RelayChannel(27)
+    sched = Schedule.Schedule()
+    now = datetime.datetime.now()
+    sched.add('on', '*', '*', str(now.minute+2))
+    sched.add('off', '*', '*', str(now.minute+3))
+    return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
+
   def parse(self, form):
     if 'overheadOn' in form:
       self.overhead.on()
     if 'overheadOff' in form:
+      self.overhead.off()
+    if 'baskingOn' in form:
+      self.overhead.on()
+    if 'baskingOff' in form:
       self.overhead.off()
 
   def rangeHtml(self, title, min, max, value, cssBackground):
