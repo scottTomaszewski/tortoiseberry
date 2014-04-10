@@ -13,6 +13,7 @@
     <form action="#" method="post">
       <div id='content'>
         <div id='tank'>
+
           <!-- Top Left -->
           <div id='topLeftTempHum' class='tempHumidityContainer leftTempHum'>
             <div id='topLeftTemp' class='rangeContainer'>
@@ -54,6 +55,8 @@
           </div>
         </div>
         <div id='statusBar'>
+
+          <!-- UVB Light -->
           <div id='uvbLightContainer' class='statusBarItem statusBarBlock statusBarLeft'>
             <div id='uvbLightTitle' class='statusBarItemTitle'>UVB Light</div>
             <div id='uvbLightBody' class='statusBarItemBody'>
@@ -63,6 +66,8 @@
             </div>
             <div id='uvbLightFooter' class='statusBarItemFooter'>Scheduled</div>
           </div>
+
+          <!-- Basking Light -->
           <div id='baskingLightContainer' class='statusBarItem statusBarBlock statusBarLeft'>
             <div id='baskingLightTitle' class='statusBarItemTitle'>Basking Light</div>
             <div id='baskingLightBody' class='statusBarItemBody'>
@@ -72,6 +77,8 @@
             </div>
             <div id='baskingLightFooter' class='statusBarItemFooter'>Manual</div>
           </div>
+
+          <!-- Weather -->
           <div id='weatherContainer' class='statusBarItem statusBarBlock statusBarRight'>
             <div id='iconContainer'>
               <img id='weatherIcon' src='images/partly cloudy.png'/>
@@ -82,8 +89,12 @@
               <div id='minTemp' class='sideWeatherTemp weatherTemp'>${outsideMaxTemp}</div>
             </div>
           </div>
+
+          <!-- TBD -->
           <div class='statusBarItem statusBarBlock statusBarRight'>
           </div>
+
+          <!-- Clock -->
           <div id='centerContainer' class='statusBarItem statusBarCenter'>
             <div id='timeContainer'>
               <div id='timeHourMinutes'></div>
