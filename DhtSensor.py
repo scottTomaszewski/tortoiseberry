@@ -24,6 +24,8 @@ class DhtSensor:
       p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", "2302", str(self.pin)], stdout=subprocess.PIPE)
       self.lastRead = p.communicate()[0]
       self.lastReadTime = time.time()
+    if 'Temp' not in self.lastRead:
+      return self.dht()
     return self.lastRead
 
   def __init__(self, pin):
