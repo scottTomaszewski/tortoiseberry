@@ -17,6 +17,8 @@ class StatusPage:
     #self.basking.off()
     self.topLeftDHT = DhtSensor.DhtSensor(4, 22)
     self.topRightDHT = DhtSensor.DhtSensor(14, 11)
+    self.bottomLeftDHT = DhtSensor.DhtSensor(15, 11)
+    self.bottomRightDHT = DhtSensor.DhtSensor(18, 11)
     self.weather = Weather.Weather()
 
   def spikeOverheadLight(self):
@@ -71,10 +73,17 @@ class StatusPage:
   def content(self):
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
+    
     vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
     vars['topRightTemp'] = self.temperatureRangeHtml(self.topRightDHT.temperatureF())
+    vars['bottomLeftTemp'] = self.temperatureRangeHtml(self.bottomLeftDHT.temperatureF())
+    vars['bottomRightTemp'] = self.temperatureRangeHtml(self.bottomRightDHT.temperatureF())
+
     vars['topLeftHumidity'] = self.humidityRangeHtml(self.topLeftDHT.humidity())
     vars['topRightHumidity'] = self.humidityRangeHtml(self.topRightDHT.humidity())
+    vars['bottomLeftHumidity'] = self.humidityRangeHtml(self.bottomLeftDHT.humidity())
+    vars['bottomRightHumidity'] = self.humidityRangeHtml(self.bottomRightDHT.humidity())
+
     vars['outsideTemp'] = int(self.weather.temperature())
     vars['outsideMinTemp'] = int(self.weather.tempLow())
     vars['outsideMaxTemp'] = int(self.weather.tempHigh())
