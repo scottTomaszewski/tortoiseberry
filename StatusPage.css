@@ -52,6 +52,10 @@ html, body {
   right: 0;
 }
 
+.rightTempHum .rangeTitle {
+  float: right;
+}
+
 .bottomTempHum {
   bottom: 14em;
 }
