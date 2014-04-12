@@ -23,11 +23,16 @@ html, body {
   text-align: center;
   border-radius: 0 0 1em 1em;
   padding-bottom: .25em;
+  color: #36F21D;
+}
+
+#utilBar a {
+  color: #36F21D;
 }
 
 .tempHumidityContainer {
   position: absolute;
-  background: #222;
+  background: #233221;
   border-bottom: 1px solid #145F0A;
   padding-bottom: .75em;
   height: 8em;
@@ -102,20 +107,20 @@ html, body {
   width: 3px;
   height: 1.1em;
   background: rgba(0,0,0,0);
-  border: 1em solid #222;
-  border-left: .25em solid #222;
-  border-right: .25em solid #222;
+  border: 1em solid #233221;
+  border-left: .25em solid #233221;
+  border-right: .25em solid #233221;
   float: left;
 }
 
 .rangeTickMed {
   height: 1.5em;
-  border-top: .6em solid #222;
+  border-top: .6em solid #233221;
 }
 
 .rangeTickLarge {
   height: 2em;
-  border-top: 0 solid #222;
+  border-top: 0 solid #233221;
 }
 
 .rangeTickValue {
@@ -123,7 +128,7 @@ html, body {
   position: absolute;
   margin-top: 1em;
   width: 1.25em;
-  background: #222;
+  background: #233221;
   text-align: center;
   margin-left: -.55em;
   color: #888;
