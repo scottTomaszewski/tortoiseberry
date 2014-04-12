@@ -19,17 +19,19 @@ class DhtSensor:
     return int(float(9.0/5.0 * self.temperature() + 32))
 
   def dhtTimeout(self, count):
-    p = subprocess.Popen(["sudo", "./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", str(self.model), str(self.pin)], stdout=subprocess.PIPE)
-    maybe = p.communicate()[0]
-    print self.lastRead
+    if count < 1:
+      return
+    maybe = subprocess.check_output(["./Adafruit-Raspberry-Pi-Python-Code/Adafruit_DHT_Driver/Adafruit_DHT", str(self.model), str(self.pin)]);
     if 'Temp' not in maybe:
-      self.dhtTimeout(count-1)
+      print "---Read of DHT failed on " + str(self.pin)
+      self.dhtTimeout(count -1)
     else:
+      print "+++passed on " + str(self.pin) 
       self.lastRead = maybe
 
   def update(self): 
     threading.Timer(10, self.update).start(); 
-    return self.dhtTimeout(3)
+    return self.dhtTimeout(1)
 
   def __init__(self, pin, model):
     if not str(pin).isdigit():
@@ -37,4 +39,5 @@ class DhtSensor:
     self.pin = pin
     self.model = model
     self.lastRead = None
+    self.dhtTimeout(3)
     self.update()
