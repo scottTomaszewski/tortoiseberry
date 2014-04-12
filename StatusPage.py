@@ -25,16 +25,18 @@ class StatusPage:
     relayChannel = RelayChannel.RelayChannel(11)
     sched = Schedule.Schedule()
     now = datetime.datetime.now()
-    sched.add('on', '*', '*', str(now.minute+1))
-    sched.add('off', '*', '*', str(now.minute+2))
+    sched.add('on', '*', '10', '0')
+    sched.add('off', '*', '22', '0')
+    #sched.add('on', '*', '*', str(now.minute+2))
+    #sched.add('off', '*', '*', str(now.minute+3))
     return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
 
   def spikeBaskingLight(self):
     relayChannel = RelayChannel.RelayChannel(13)
     sched = Schedule.Schedule()
     now = datetime.datetime.now()
-    sched.add('on', '*', '*', str(now.minute+2))
-    sched.add('off', '*', '*', str(now.minute+3))
+    sched.add('on', '*', '12', '0')
+    sched.add('off', '*', '15', '0')
     return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
 
   def parse(self, form):
