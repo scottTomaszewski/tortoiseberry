@@ -13,8 +13,8 @@ class StatusPage:
   def __init__(self):
     self.overhead = self.spikeOverheadLight()
     self.overhead.off()
-    #self.basking = self.spikeBaskingLight()
-    #self.basking.off()
+    self.basking = self.spikeBaskingLight()
+    self.basking.off()
     self.topLeftDHT = DhtSensor.DhtSensor(4, 22)
     self.topRightDHT = DhtSensor.DhtSensor(14, 11)
     self.bottomLeftDHT = DhtSensor.DhtSensor(15, 11)
@@ -30,7 +30,7 @@ class StatusPage:
     return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
 
   def spikeBaskingLight(self):
-    relayChannel = RelayChannel.RelayChannel(27)
+    relayChannel = RelayChannel.RelayChannel(13)
     sched = Schedule.Schedule()
     now = datetime.datetime.now()
     sched.add('on', '*', '*', str(now.minute+2))
