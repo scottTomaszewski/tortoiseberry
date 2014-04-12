@@ -73,6 +73,7 @@ class StatusPage:
   def content(self):
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
+    vars['baskingStatus'] = 'OFF' if self.basking.status() == 1 else 'ON'
     
     vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
     vars['topRightTemp'] = self.temperatureRangeHtml(self.topRightDHT.temperatureF())
