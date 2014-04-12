@@ -22,7 +22,7 @@ class Weather:
 
   def icon(self):
     id = self.data()['weather'][0]['id']
-    return '/images/' + str(codeToIcon(id))
+    return '/images/' + str(self.codeToIcon(id))
 
   def data(self):
     fiveMinutes = 300

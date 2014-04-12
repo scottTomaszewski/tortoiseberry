@@ -85,9 +85,11 @@ class StatusPage:
     vars['bottomLeftHumidity'] = self.humidityRangeHtml(self.bottomLeftDHT.humidity())
     vars['bottomRightHumidity'] = self.humidityRangeHtml(self.bottomRightDHT.humidity())
 
+    vars['weatherIcon'] = self.weather.icon()
     vars['outsideTemp'] = int(self.weather.temperature())
     vars['outsideMinTemp'] = int(self.weather.tempLow())
     vars['outsideMaxTemp'] = int(self.weather.tempHigh())
+
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
