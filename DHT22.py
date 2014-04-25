@@ -87,6 +87,7 @@ class DHT22_sensor:
 
                   if (total & 255) == self.CS: # is checksum ok
 
+                     print "hum raw: " + str(self.hH)
                      self.rhum = ((self.hH<<8) + self.hL) * 0.1
 
                      if self.tH & 128: # negative temperature
@@ -94,7 +95,8 @@ class DHT22_sensor:
                         self.tH = self.tH & 127
                      else:
                         mult = 0.1
-
+                     
+                     print "hum temp: " + str(self.tH)
                      self.temp = ((self.tH<<8) + self.tL) * mult
 
                      self.tov = time.time()
@@ -188,7 +190,7 @@ if __name__ == "__main__":
 
    pigpio.start()
 
-   s = DHT22.DHT22_sensor(7)
+   s = DHT22.DHT22_sensor(4)
 
    r = 0
 
