@@ -88,8 +88,8 @@ class DHT_sensor:
 
                   if (total & 255) == self.CS: # is checksum ok
 
-                     print "hum raw: " + str(self.hH)
-                     self.rhum = ((self.hH<<8) + self.hL) * 0.1
+                     #self.rhum = ((self.hH<<8) + self.hL) * 0.1
+                     self.rhum = self.hH
 
                      if self.tH & 128: # negative temperature
                         mult = -0.1
@@ -97,8 +97,8 @@ class DHT_sensor:
                      else:
                         mult = 0.1
                      
-                     print "hum temp: " + str(self.tH)
-                     self.temp = ((self.tH<<8) + self.tL) * mult
+                     #self.temp = ((self.tH<<8) + self.tL) * mult
+                     self.temp = self.tH
 
                      self.tov = time.time()
 
