@@ -5,6 +5,7 @@ html, body {
   margin: 0;
   top: 0;
   left: 0;
+  background: url("images/green_radial.png");
   background: radial-gradient(#36F21D, #222);
 }
 
