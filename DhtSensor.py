@@ -27,6 +27,7 @@ class DhtSensor:
       self.dhtTimeout(count -1)
     else:
       print "+++passed on " + str(self.pin) 
+      print maybe
       self.lastRead = maybe
 
   def update(self): 

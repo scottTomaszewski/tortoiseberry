@@ -72,6 +72,17 @@ class StatusPage:
   def humidityRangeHtml(self, value):
     return self.rangeHtml('H', 30, 90, value, 'redBlueFullRange')
 
+  def printData(self):
+    print "top left temp: " + str(self.topLeftDHT.temperatureF())
+    print "top right temp: " + str(self.topRightDHT.temperatureF())
+    print "bottom left temp: " + str(self.bottomLeftDHT.temperatureF())
+    print "bottom right temp: " + str(self.bottomRightDHT.temperatureF())
+
+    print "top left hum: " + str(self.topLeftDHT.humidity())
+    print "top right hum: " + str(self.topRightDHT.humidity())
+    print "bottom left hum: " + str(self.bottomLeftDHT.humidity())
+    print "bottom right hum: " + str(self.bottomRightDHT.humidity())
+
   def content(self):
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
@@ -91,6 +102,8 @@ class StatusPage:
     vars['outsideTemp'] = int(self.weather.temperature())
     vars['outsideMinTemp'] = int(self.weather.tempLow())
     vars['outsideMaxTemp'] = int(self.weather.tempHigh())
+
+    self.printData()
 
     content = ""
     html = open('StatusPage.html','rb')
