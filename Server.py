@@ -26,7 +26,7 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
     s.wfile.write(str(statusPage.content()))
 
 if __name__ == '__main__':
-  server_address = ('', 8000)
+  server_address = ('0.0.0.0', 3674)
   httpd = CGIHTTPServer.BaseHTTPServer.HTTPServer(server_address, RequestHandler)
   try:
     httpd.serve_forever()
