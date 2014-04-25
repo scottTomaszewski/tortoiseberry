@@ -15,7 +15,7 @@ class StatusPage:
     self.overhead.off()
     self.basking = self.spikeBaskingLight()
     self.basking.off()
-    self.topLeftDHT = DhtSensor.DhtSensor(4, 22)
+    self.topLeftDHT = DhtSensor.DhtSensor(4, 11)
     self.topRightDHT = DhtSensor.DhtSensor(14, 11)
     self.bottomLeftDHT = DhtSensor.DhtSensor(15, 11)
     self.bottomRightDHT = DhtSensor.DhtSensor(18, 11)
