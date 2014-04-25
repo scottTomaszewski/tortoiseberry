@@ -4,11 +4,11 @@ import time
 
 import pigpio
 
-class DHT22_sensor:
+class DHT_sensor:
    """
    Source: http://www.raspberrypi.org/forums/viewtopic.php?t=66445&p=486959
    A class to read relative humidity and temperature from the
-   DHT22 sensor.  The sensor is also known as the AM2302.
+   DHT sensor.  The sensor is also known as the AM2302.
 
    The sensor can be powered from the Pi 3V3 or the Pi 5V rail.
 
@@ -25,14 +25,14 @@ class DHT22_sensor:
 
    5V--5K_resistor--+--10K_resistor--Ground
                     |
-   DHT22 pin 2 -----+
+   DHT pin 2 -----+
                     |
    gpio ------------+
    """
 
    def __init__(self, gpio):
       """
-      Instantiate with the gpio to which the DHT22 output pin is connected.
+      Instantiate with the gpio to which the DHT output pin is connected.
       """
 
       self.gpio = gpio
@@ -178,7 +178,7 @@ class DHT22_sensor:
       pigpio.set_watchdog(self.gpio, 50)
 
    def cancel(self):
-      """Cancel the DHT22 sensor."""
+      """Cancel the DHT sensor."""
       self.cb.cancel()
 
 if __name__ == "__main__":
@@ -187,11 +187,11 @@ if __name__ == "__main__":
 
    import pigpio
 
-   import DHT22
+   import DHT
 
    pigpio.start()
 
-   s = DHT22.DHT22_sensor(4)
+   s = DHT.DHT_sensor(4)
 
    r = 0
 
