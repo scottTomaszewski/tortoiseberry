@@ -69,18 +69,6 @@ class DHT11_sensor:
                   if (total & 255) == self.CS: # is checksum ok
                      self.rhum = self.adjustHumidity()
                      self.temp = self.adjustTemperature()
-
-                     # dht22
-                     #self.rhum = ((self.hH<<8) + self.hL) * 0.1
-
-                     #if self.tH & 128: # negative temperature
-                     #   mult = -0.1
-                     #   self.tH = self.tH & 127
-                     #else:
-                     #   mult = 0.1
-
-                     #self.temp = ((self.tH<<8) + self.tL) * mult
-
                      self.tov = time.time()
                   else:
                      self.bad_CS += 1
