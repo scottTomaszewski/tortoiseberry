@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-
 import time
-
 import pigpio
 
 class DHT11_sensor:
@@ -33,25 +31,16 @@ class DHT11_sensor:
       """
       Instantiate with the gpio to which the DHT11 output pin is connected.
       """
-
       self.gpio = gpio
-
       self.bad_CS = 0 # checksum
       self.bad_TO = 0 # time-out
-
       self.accumulating = False
-
       self.rhum = -999
       self.temp = -999
-
       self.tov = None
-
       self.tick = 0
-
       pigpio.set_mode(gpio, pigpio.INPUT)
-
       pigpio.set_pull_up_down(gpio, pigpio.PUD_UP)
-
       self.cb = pigpio.callback(gpio, pigpio.EITHER_EDGE, self._cb)
 
    def _cb(self, gpio, level, tick):
@@ -60,13 +49,10 @@ class DHT11_sensor:
       humidity low, temperature high, temperature low, checksum.
       """
       if self.accumulating:
-
          if level == 0:
-
             diff = pigpio.tickDiff(self.tick, tick)
 
             # edge length determines if bit is 1 or 0
-
             if diff >= 50:
                val = 1
             else:
@@ -74,19 +60,13 @@ class DHT11_sensor:
 
             if self.bit >= 32: # in checksum byte
                self.CS  = (self.CS<<1)  + val
-
                if self.bit >= 39:
-
                   # 40 bits received
-
                   self.accumulating = False
-
                   pigpio.set_watchdog(self.gpio, 0)
-
                   total = self.hH + self.hL + self.tH + self.tL
 
                   if (total & 255) == self.CS: # is checksum ok
-
                      self.rhum = self.hH
                      self.temp = self.tH
 
@@ -102,26 +82,19 @@ class DHT11_sensor:
                      #self.temp = ((self.tH<<8) + self.tL) * mult
 
                      self.tov = time.time()
-
                   else:
-
                      self.bad_CS += 1
 
             elif self.bit >=24: # in temp low byte
                self.tL = (self.tL<<1) + val
-
             elif self.bit >=16: # in temp high byte
                self.tH = (self.tH<<1) + val
-
             elif self.bit >= 8: # in humidity low byte
                self.hL = (self.hL<<1) + val
-
             elif self.bit >= 0: # in humidity high byte
                self.hH = (self.hH<<1) + val
-
             else:               # header bits
                pass
-
             self.bit += 1
 
          elif level == 1:
