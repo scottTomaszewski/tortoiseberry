@@ -3,7 +3,8 @@ import CGIHTTPServer
 from CGIHTTPServer import CGIHTTPRequestHandler
 import sys
 import cgi, cgitb
- 
+import pigpio
+
 class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
   global statusPage
   statusPage = StatusPage.StatusPage()
@@ -26,9 +27,12 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
     s.wfile.write(str(statusPage.content()))
 
 if __name__ == '__main__':
+  pigpio.start()
   server_address = ('0.0.0.0', 3674)
   httpd = CGIHTTPServer.BaseHTTPServer.HTTPServer(server_address, RequestHandler)
   try:
     httpd.serve_forever()
   except KeyboardInterrupt:
+    pigpio.stop()
     sys.exit()
+
