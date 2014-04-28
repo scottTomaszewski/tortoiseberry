@@ -6,9 +6,6 @@ from string import Template
 import math
 import Weather
 
-#temp
-import datetime
-
 class StatusPage:
   def __init__(self):
     self.overhead = self.spikeOverheadLight()
@@ -27,8 +24,6 @@ class StatusPage:
     now = datetime.datetime.now()
     sched.add('on', '*', '10', '0')
     sched.add('off', '*', '22', '0')
-    #sched.add('on', '*', '*', str(now.minute+2))
-    #sched.add('off', '*', '*', str(now.minute+3))
     return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
 
   def spikeBaskingLight(self):
