@@ -1,7 +1,7 @@
 import RelayChannel
 import ScheduledRelayChannel
 import Schedule
-import DhtSensor
+import DHT11
 from string import Template
 import math
 import Weather
@@ -15,10 +15,10 @@ class StatusPage:
     self.overhead.off()
     self.basking = self.spikeBaskingLight()
     self.basking.off()
-    self.topLeftDHT = DhtSensor.DhtSensor(4, 11)
-    self.topRightDHT = DhtSensor.DhtSensor(14, 11)
-    self.bottomLeftDHT = DhtSensor.DhtSensor(15, 11)
-    self.bottomRightDHT = DhtSensor.DhtSensor(18, 11)
+    self.topLeftDHT = DHT11.DHT11(4)
+    self.topRightDHT = DHT11.DHT11(14)
+    self.bottomLeftDHT = DHT11.DHT11(15)
+    self.bottomRightDHT = DHT11.DHT11(1)
     self.weather = Weather.Weather()
 
   def spikeOverheadLight(self):
@@ -76,7 +76,13 @@ class StatusPage:
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
     vars['baskingStatus'] = 'OFF' if self.basking.status() == 1 else 'ON'
-    
+   
+    # trigger dht sensors
+    self.topLeftDHT.trigger()
+    self.topRightDHT.trigger()
+    self.bottomLeftDHT.trigger()
+    self.bottomRightDHT.trigger()
+
     vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
     vars['topRightTemp'] = self.temperatureRangeHtml(self.topRightDHT.temperatureF())
     vars['bottomLeftTemp'] = self.temperatureRangeHtml(self.bottomLeftDHT.temperatureF())
