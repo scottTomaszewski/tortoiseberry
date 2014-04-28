@@ -161,7 +161,7 @@ if __name__ == "__main__":
    import DHT11
 
    pigpio.start()
-   s = DHT11.DHT11_sensor(7)
+   s = DHT11.DHT11_sensor(4)
    r = 0
 
    while True:
