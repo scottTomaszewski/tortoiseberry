@@ -67,8 +67,8 @@ class DHT11_sensor:
                   total = self.hH + self.hL + self.tH + self.tL
 
                   if (total & 255) == self.CS: # is checksum ok
-                     self.rhum = self.hH
-                     self.temp = self.tH
+                     self.rhum = self.adjustHumidity()
+                     self.temp = self.adjustTemperature()
 
                      # dht22
                      #self.rhum = ((self.hH<<8) + self.hL) * 0.1
@@ -154,6 +154,12 @@ class DHT11_sensor:
    def cancel(self):
       """Cancel the DHT11 sensor."""
       self.cb.cancel()
+
+   def adjustTemperature(self):
+     return self.tH
+
+   def adjustHumidity(self):
+     return self.hH
 
 if __name__ == "__main__":
    import time
