@@ -116,6 +116,9 @@ class DHT11_sensor:
       """Return current temperature."""
       return self.temp
 
+   def temperatureF(self):
+     return int(float(9.0/5.0 * self.temperature() + 32))
+
    def humidity(self):
       """Return current relative humidity."""
       return self.rhum
