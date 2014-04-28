@@ -183,33 +183,21 @@ class DHT11_sensor:
       self.cb.cancel()
 
 if __name__ == "__main__":
-
    import time
-
    import pigpio
-
    import DHT11
 
    pigpio.start()
-
    s = DHT11.DHT11_sensor(7)
-
    r = 0
 
    while True:
-
       r += 1
-
       s.trigger()
-
       time.sleep(0.2)
-
       print("{} RH={}% T={}C staleness={:3.2f}s bad CS={} timed out={}"
          .format(r, s.humidity(), s.temperature(), s.staleness(),
          s.bad_checksum(), s.timed_out()))
-
       time.sleep(1.75)
-
    s.cancel()
-
    pigpio.stop()
