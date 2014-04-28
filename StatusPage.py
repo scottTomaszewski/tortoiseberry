@@ -12,10 +12,10 @@ class StatusPage:
     self.overhead.off()
     self.basking = self.spikeBaskingLight()
     self.basking.off()
-    self.topLeftDHT = DHT11.DHT11(4)
-    self.topRightDHT = DHT11.DHT11(14)
-    self.bottomLeftDHT = DHT11.DHT11(15)
-    self.bottomRightDHT = DHT11.DHT11(1)
+    self.topLeftDHT = DHT11.DHT11_sensor(4)
+    self.topRightDHT = DHT11.DHT11_sensor(14)
+    self.bottomLeftDHT = DHT11.DHT11_sensor(15)
+    self.bottomRightDHT = DHT11.DHT11_sensor(1)
     self.weather = Weather.Weather()
 
   def spikeOverheadLight(self):
