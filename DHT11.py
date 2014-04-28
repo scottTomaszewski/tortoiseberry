@@ -4,6 +4,9 @@ import pigpio
 
 class DHT11_sensor:
    """
+   Orginal Source:
+   http://www.raspberrypi.org/forums/viewtopic.php?p=515575#p515575
+
    A class to read relative humidity and temperature from the
    DHT11 sensor.  The sensor is also known as the AM2302.
 
