@@ -5,12 +5,14 @@ import DHT11
 from string import Template
 import math
 import Weather
+import pigpio
 
 #temp 
 import datetime
 
 class StatusPage:
   def __init__(self):
+    pigpio.start()
     self.overhead = self.spikeOverheadLight()
     self.overhead.off()
     self.basking = self.spikeBaskingLight()
