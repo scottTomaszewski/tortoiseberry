@@ -1,13 +1,14 @@
 #!/usr/bin/env python
-
 import time
-
 import pigpio
 
-class DHT22_sensor:
+class DHT11_sensor:
    """
+   Orginal Source:
+   http://www.raspberrypi.org/forums/viewtopic.php?p=515575#p515575
+
    A class to read relative humidity and temperature from the
-   DHT22 sensor.  The sensor is also known as the AM2302.
+   DHT11 sensor.  The sensor is also known as the AM2302.
 
    The sensor can be powered from the Pi 3V3 or the Pi 5V rail.
 
@@ -24,34 +25,25 @@ class DHT22_sensor:
 
    5V--5K_resistor--+--10K_resistor--Ground
                     |
-   DHT22 pin 2 -----+
+   DHT11 pin 2 -----+
                     |
    gpio ------------+
    """
 
    def __init__(self, gpio):
       """
-      Instantiate with the gpio to which the DHT22 output pin is connected.
+      Instantiate with the gpio to which the DHT11 output pin is connected.
       """
-
       self.gpio = gpio
-
       self.bad_CS = 0 # checksum
       self.bad_TO = 0 # time-out
-
       self.accumulating = False
-
       self.rhum = -999
       self.temp = -999
-
       self.tov = None
-
       self.tick = 0
-
       pigpio.set_mode(gpio, pigpio.INPUT)
-
       pigpio.set_pull_up_down(gpio, pigpio.PUD_UP)
-
       self.cb = pigpio.callback(gpio, pigpio.EITHER_EDGE, self._cb)
 
    def _cb(self, gpio, level, tick):
@@ -60,13 +52,10 @@ class DHT22_sensor:
       humidity low, temperature high, temperature low, checksum.
       """
       if self.accumulating:
-
          if level == 0:
-
             diff = pigpio.tickDiff(self.tick, tick)
 
             # edge length determines if bit is 1 or 0
-
             if diff >= 50:
                val = 1
             else:
@@ -74,52 +63,29 @@ class DHT22_sensor:
 
             if self.bit >= 32: # in checksum byte
                self.CS  = (self.CS<<1)  + val
-
                if self.bit >= 39:
-
                   # 40 bits received
-
                   self.accumulating = False
-
                   pigpio.set_watchdog(self.gpio, 0)
-
                   total = self.hH + self.hL + self.tH + self.tL
 
                   if (total & 255) == self.CS: # is checksum ok
-
-                     print "hum raw: " + str(self.hH)
-                     self.rhum = ((self.hH<<8) + self.hL) * 0.1
-
-                     if self.tH & 128: # negative temperature
-                        mult = -0.1
-                        self.tH = self.tH & 127
-                     else:
-                        mult = 0.1
-                     
-                     print "hum temp: " + str(self.tH)
-                     self.temp = ((self.tH<<8) + self.tL) * mult
-
+                     self.rhum = self.adjustHumidity()
+                     self.temp = self.adjustTemperature()
                      self.tov = time.time()
-
                   else:
-
                      self.bad_CS += 1
 
             elif self.bit >=24: # in temp low byte
                self.tL = (self.tL<<1) + val
-
             elif self.bit >=16: # in temp high byte
                self.tH = (self.tH<<1) + val
-
             elif self.bit >= 8: # in humidity low byte
                self.hL = (self.hL<<1) + val
-
             elif self.bit >= 0: # in humidity high byte
                self.hH = (self.hH<<1) + val
-
             else:               # header bits
                pass
-
             self.bit += 1
 
          elif level == 1:
@@ -140,6 +106,9 @@ class DHT22_sensor:
    def temperature(self):
       """Return current temperature."""
       return self.temp
+
+   def temperatureF(self):
+     return int(float(9.0/5.0 * self.temperature() + 32))
 
    def humidity(self):
       """Return current relative humidity."""
@@ -177,37 +146,31 @@ class DHT22_sensor:
       pigpio.set_watchdog(self.gpio, 50)
 
    def cancel(self):
-      """Cancel the DHT22 sensor."""
+      """Cancel the DHT11 sensor."""
       self.cb.cancel()
 
+   def adjustTemperature(self):
+     return self.tH
+
+   def adjustHumidity(self):
+     return self.hH
+
 if __name__ == "__main__":
-
    import time
-
    import pigpio
-
-   import DHT22
+   import DHT11
 
    pigpio.start()
-
-   s = DHT22.DHT22_sensor(4)
-
+   s = DHT11.DHT11_sensor(4)
    r = 0
 
    while True:
-
       r += 1
-
       s.trigger()
-
       time.sleep(0.2)
-
       print("{} RH={}% T={}C staleness={:3.2f}s bad CS={} timed out={}"
          .format(r, s.humidity(), s.temperature(), s.staleness(),
          s.bad_checksum(), s.timed_out()))
-
       time.sleep(1.75)
-
    s.cancel()
-
    pigpio.stop()
