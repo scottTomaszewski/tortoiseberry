@@ -1,0 +1,116 @@
+
+<!-- saved from url=(0021)http://10.0.0.6:3674/ -->
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/StatusPage.css">
+    <link rel="stylesheet" type="text/css" href="StatusPage.css">
+    <script type="text/javascript" src="/StatusPage.js"></script>
+    <script type="text/javascript" src="StatusPage.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/ico" href="/images/favicon.ico"/>
+    <link rel="icon" type="image/ico" href="images/favicon.ico"/>
+    <title>Spike!</title>
+  </head>
+  <body onload="startTime()">
+    <form action="http://10.0.0.6:3674/#" method="post">
+      <div id="content">
+        <div id="tank">
+          <div id="utilBar">
+            <a href="http://10.0.0.6:3674/#" onclick="disableRefresh()">Disable refresh</a>
+            <a href="http://10.0.0.6:3674/#" onclick="enableRefresh()">Enable refresh</a>
+          </div>
+
+          <!-- Top Left -->
+          <div id="topLeftTempHum" class="tempHumidityContainer leftTempHum">
+            <div id="topLeftTemp" class="rangeContainer">
+              <div class="rangeTitle">T</div><div class="rangeBar blueRedFullRange"><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick rangeTickLarge">  <div class="rangeTickValue">73</div></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div></div> 
+            </div>
+            <div id="topLeftHumidity" class="rangeContainer">
+              <div class="rangeTitle">H</div><div class="rangeBar redBlueFullRange"><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick rangeTickLarge">  <div class="rangeTickValue">40</div></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div></div> 
+            </div>
+          </div>
+          
+          <!-- Top Right -->
+          <div id="topRightTempHum" class="tempHumidityContainer rightTempHum">
+            <div id="topRightTemp" class="rangeContainer">
+              <div class="rangeTitle">T</div><div class="rangeBar blueRedFullRange"><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick rangeTickLarge">  <div class="rangeTickValue">73</div></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div></div> 
+            </div>
+            <div id="topRightHumidity" class="rangeContainer">
+              <div class="rangeTitle">H</div><div class="rangeBar redBlueFullRange"><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick rangeTickLarge">  <div class="rangeTickValue">38</div></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div></div> 
+            </div>
+          </div>
+          
+          <!-- Bottom Left -->
+          <div id="bottomLeftTempHum" class="tempHumidityContainer leftTempHum bottomTempHum">
+            <div id="bottomLeftTemp" class="rangeContainer">
+              <div class="rangeTitle">T</div><div class="rangeBar blueRedFullRange"><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick rangeTickLarge">  <div class="rangeTickValue">71</div></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div></div> 
+            </div>
+            <div id="bottomLeftHumidity" class="rangeContainer">
+              <div class="rangeTitle">H</div><div class="rangeBar redBlueFullRange"><div class="rangeTick rangeTickLarge">  <div class="rangeTickValue">30</div></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div></div> 
+            </div>
+          </div>
+          
+          <!-- Bottom Right -->
+          <div id="bottomRightTempHum" class="tempHumidityContainer rightTempHum bottomTempHum">
+            <div id="bottomRightTemp" class="rangeContainer">
+              <div class="rangeTitle">T</div><div class="rangeBar blueRedFullRange"><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick rangeTickLarge">  <div class="rangeTickValue">73</div></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div></div> 
+            </div>
+            <div id="bottomRightHumidity" class="rangeContainer">
+              <div class="rangeTitle">H</div><div class="rangeBar redBlueFullRange"><div class="rangeTick rangeTickMed"></div><div class="rangeTick rangeTickLarge">  <div class="rangeTickValue">33</div></div><div class="rangeTick rangeTickMed"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div><div class="rangeTick"></div></div> 
+            </div>
+          </div>
+        </div>
+        <div id="statusBar">
+
+          <!-- UVB Light -->
+          <div id="uvbLightContainer" class="statusBarItem statusBarBlock statusBarLeft">
+            <div id="uvbLightTitle" class="statusBarItemTitle">UVB Light</div>
+            <div id="uvbLightBody" class="statusBarItemBody">
+              <div id="uvbLightStatus" class="statusBarItemToggleable">OFF</div>
+              <input type="submit" value="On" name="overheadOn">
+              <input type="submit" value="Off" name="overheadOff">
+            </div>
+            <div id="uvbLightFooter" class="statusBarItemFooter">Scheduled</div>
+          </div>
+
+          <!-- Basking Light -->
+          <div id="baskingLightContainer" class="statusBarItem statusBarBlock statusBarLeft">
+            <div id="baskingLightTitle" class="statusBarItemTitle">Basking Light</div>
+            <div id="baskingLightBody" class="statusBarItemBody">
+              <div id="baskingLightStatus" class="statusBarItemToggleable">OFF</div>
+              <input type="submit" value="On" name="baskingOn">
+              <input type="submit" value="Off" name="baskingOff">
+            </div>
+            <div id="baskingLightFooter" class="statusBarItemFooter">Manual</div>
+          </div>
+
+          <!-- Weather -->
+          <div id="weatherContainer" class="statusBarItem statusBarBlock statusBarRight">
+            <div id="iconContainer">
+              <img id="weatherIcon" src="images/rain.png">
+            </div>
+            <div id="tempContainer">
+              <div id="minTemp" class="sideWeatherTemp weatherTemp">46</div>
+              <div id="minTemp" class="middleWeatherTemp weatherTemp">47</div>
+              <div id="minTemp" class="sideWeatherTemp weatherTemp">49</div>
+            </div>
+          </div>
+
+          <!-- TBD -->
+          <div class="statusBarItem statusBarBlock statusBarRight">
+          </div>
+
+          <!-- Clock -->
+          <div id="centerContainer" class="statusBarItem statusBarCenter">
+            <div id="timeContainer">
+              <div id="timeHourMinutes">10:23</div>
+              <div id="timeSeconds">49</div>
+            </div>
+            <div id="dateContainer" class="statusBarItemFooter">April 2</div>
+          </div>
+        </div>
+      </div>
+    </form>
+  
+
+</body></html>

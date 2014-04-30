@@ -190,7 +190,6 @@ html, body {
   position: absolute;
   bottom: 0;
   width: 8em;
-  color: #145F0A;
 }
 
 .statusBarCenter {
@@ -244,7 +243,6 @@ html, body {
 
 .sideWeatherTemp {
   font-size: 2em;
-  color: #145F0A;
   vertical-align: bottom;
 }
 
