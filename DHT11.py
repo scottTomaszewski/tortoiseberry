@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import time
 import pigpio
+import threading
 
 class DHT11_sensor:
    """
@@ -154,6 +155,10 @@ class DHT11_sensor:
 
    def adjustHumidity(self):
      return self.hH
+
+   def autoUpdate(self):
+     self.trigger()
+     threading.Timer(5, self.autoUpdate).start()
 
 if __name__ == "__main__":
    import time

@@ -21,6 +21,10 @@ class StatusPage:
     self.topRightDHT = DHT11.DHT11_sensor(14)
     self.bottomLeftDHT = DHT11.DHT11_sensor(15)
     self.bottomRightDHT = DHT11.DHT11_sensor(18)
+    self.topLeftDHT.autoUpdate()
+    self.topRightDHT.autoUpdate()
+    self.bottomLeftDHT.autoUpdate()
+    self.bottomRightDHT.autoUpdate()
     self.weather = Weather.Weather()
 
   def spikeOverheadLight(self):
@@ -88,10 +92,10 @@ class StatusPage:
     vars['baskingStatus'] = 'OFF' if self.basking.status() == 1 else 'ON'
    
     # trigger dht sensors
-    self.topLeftDHT.trigger()
-    self.topRightDHT.trigger()
-    self.bottomLeftDHT.trigger()
-    self.bottomRightDHT.trigger()
+#    self.topLeftDHT.trigger()
+#    self.topRightDHT.trigger()
+#    self.bottomLeftDHT.trigger()
+#    self.bottomRightDHT.trigger()
 
     vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
     vars['topRightTemp'] = self.temperatureRangeHtml(self.topRightDHT.temperatureF())
