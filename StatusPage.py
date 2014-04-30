@@ -108,8 +108,6 @@ class StatusPage:
     vars['outsideMinTemp'] = int(self.weather.tempLow())
     vars['outsideMaxTemp'] = int(self.weather.tempHigh())
 
-    self.printData()
-
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
