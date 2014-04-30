@@ -116,3 +116,6 @@ class StatusPage:
     for line in html:
       content += Template(line).substitute(vars)
     return content
+  
+  def exit(self):
+    pigpio.stop()
