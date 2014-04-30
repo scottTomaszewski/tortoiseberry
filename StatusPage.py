@@ -6,6 +6,7 @@ from string import Template
 import math
 import Weather
 import pigpio
+import json
 
 #temp 
 import datetime
@@ -86,16 +87,11 @@ class StatusPage:
     print "bottom left hum: " + str(self.bottomLeftDHT.humidity())
     print "bottom right hum: " + str(self.bottomRightDHT.humidity())
 
-  def content(self):
+
+  def data(self):
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
     vars['baskingStatus'] = 'OFF' if self.basking.status() == 1 else 'ON'
-   
-    # trigger dht sensors
-#    self.topLeftDHT.trigger()
-#    self.topRightDHT.trigger()
-#    self.bottomLeftDHT.trigger()
-#    self.bottomRightDHT.trigger()
 
     vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
     vars['topRightTemp'] = self.temperatureRangeHtml(self.topRightDHT.temperatureF())
@@ -111,12 +107,17 @@ class StatusPage:
     vars['outsideTemp'] = int(self.weather.temperature())
     vars['outsideMinTemp'] = int(self.weather.tempLow())
     vars['outsideMaxTemp'] = int(self.weather.tempHigh())
+    return vars
 
+  def content(self):
     content = ""
     html = open('StatusPage.html','rb')
     for line in html:
-      content += Template(line).substitute(vars)
+      content += Template(line).substitute(self.data())
     return content
-  
+
+  def update(self):
+    return json.dumps(self.data())
+
   def exit(self):
     pigpio.stop()
