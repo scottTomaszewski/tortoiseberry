@@ -59,7 +59,6 @@ class StatusPage:
         html += "<div class='rangeTick rangeTickMed'></div>"
       elif i == mark:
         html += "<div class='rangeTick rangeTickLarge'>"
-        html += "  <div class='rangeTickValue'>" + str(value) + "</div>"
         html += "</div>"
       else:
         html += "<div class='rangeTick'></div>"
@@ -67,10 +66,10 @@ class StatusPage:
     return html
 
   def temperatureRangeHtml(self, value):
-    return self.rangeHtml('T', 50, 100, value, 'blueRedFullRange')
+    return self.rangeHtml(value + 'F', 50, 100, value, 'blueRedFullRange')
 
   def humidityRangeHtml(self, value):
-    return self.rangeHtml('H', 30, 90, value, 'redBlueFullRange')
+    return self.rangeHtml(value + '%', 30, 90, value, 'redBlueFullRange')
 
   def printData(self):
     print "top left temp: " + str(self.topLeftDHT.temperatureF())

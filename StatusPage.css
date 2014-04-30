@@ -36,12 +36,12 @@ html, body {
   background: #233221;
   border-bottom: 1px solid #145F0A;
   padding-bottom: .75em;
-  height: 8em;
+  height: 9em;
 }
 
 .leftTempHum {
   border-radius: 0 5em 5em 0;
-  padding-right: 2em;
+  padding-right: 3em;
   border-right: 1px solid #145F0A;
 }
 
@@ -49,12 +49,8 @@ html, body {
   border-radius: 5em 0 0  5em;
   text-align: right;
   border-left: 1px solid #145F0A;
-  padding-left: 2em;
+  padding-left: 3em;
   right: 0;
-}
-
-.rightTempHum .rangeTitle {
-  float: right;
 }
 
 .bottomTempHum {
@@ -65,18 +61,37 @@ html, body {
   padding: .5em;
 }
 
+.rightTempHum .rangeTitle {
+  float: right;
+}
+
+.humidity .rangeTitle {
+  float: right;
+  margin-top: -.25em;
+}
+
+.rightTempHum .humidity .rangeTitle {
+  float: left;
+}
+
 .rangeTitle {
   display: inline-block;
-  width: 1em;
-  font-size: 2.25em;
+  width: 2em;
+  font-size: 4em;
   float: left;
   color: #888;
+  text-align: center;
 }
 
 .rangeBar {
   display: inline-block;
   width: 30.25em;
+  margin-top: 1em;
   height: 3em;
+}
+
+.humidity .rangeBar {
+  margin-top: 0em;
 }
 
 .redBlueFullRange {
@@ -112,31 +127,29 @@ html, body {
   width: 3px;
   height: 1.1em;
   background: rgba(0,0,0,0);
-  border: 1em solid #233221;
+  border-top: 2em solid #233221;
   border-left: .25em solid #233221;
   border-right: .25em solid #233221;
   float: left;
 }
 
+.humidity .rangeTick {
+  border-top: 0;
+  border-bottom: 2em solid #233221;
+}
+
 .rangeTickMed {
-  height: 1.5em;
-  border-top: .6em solid #233221;
+  height: 1.75em;
+  border-top: 1.25em solid #233221;
 }
 
 .rangeTickLarge {
-  height: 2em;
+  height: 3em;
   border-top: 0 solid #233221;
 }
 
-.rangeTickValue {
-  font-size: 1.75em;
-  position: absolute;
-  margin-top: 1em;
-  width: 1.25em;
-  background: #233221;
-  text-align: center;
-  margin-left: -.55em;
-  color: #888;
+.humidity .rangeTickLarge {
+  border-bottom: 0;
 }
 
 /* STATUS BAR */
