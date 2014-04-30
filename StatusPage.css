@@ -79,8 +79,11 @@ html, body {
   width: 2em;
   font-size: 4em;
   float: left;
-  color: #888;
   text-align: center;
+}
+
+.rangeTitleUnits {
+  font-size: .75em;
 }
 
 .rangeBar {

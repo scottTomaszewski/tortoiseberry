@@ -49,8 +49,8 @@ class StatusPage:
     if 'baskingOff' in form:
       self.basking.off()
 
-  def rangeHtml(self, title, min, max, value, cssBackground):
-    html = "<div class='rangeTitle'>" + str(title) + "</div>"
+  def rangeHtml(self, title, units, min, max, value, cssBackground):
+    html = "<div class='rangeTitle'>" + str(title) + "<span class='rangeTitleUnits'>" + str(units) + "</span></div>"
     html += "<div class='rangeBar " + cssBackground + "'>"
     perc = float(value-min) / (max-min)
     mark = math.floor(perc * 45) if perc > 0 else 1
@@ -66,10 +66,10 @@ class StatusPage:
     return html
 
   def temperatureRangeHtml(self, value):
-    return self.rangeHtml(str(value) + 'F', 50, 100, value, 'blueRedFullRange')
+    return self.rangeHtml(str(value), 'F', 50, 100, value, 'blueRedFullRange')
 
   def humidityRangeHtml(self, value):
-    return self.rangeHtml(str(value) + '%', 30, 90, value, 'redBlueFullRange')
+    return self.rangeHtml(str(value), '%', 30, 90, value, 'redBlueFullRange')
 
   def printData(self):
     print "top left temp: " + str(self.topLeftDHT.temperatureF())
