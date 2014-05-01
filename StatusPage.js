@@ -73,7 +73,6 @@ function refreshData() {
       } 
     });
     refreshed = new Date();
-    $("#lastUpdated").html(0);
   });
 }
 
