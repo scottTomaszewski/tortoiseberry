@@ -16,7 +16,7 @@ html, body {
 
 #utilBar {
   position: absolute;
-  width: 18em;
+  width: 3em;
   margin: 0 auto;
   left: 0;
   right: 0;
@@ -24,7 +24,7 @@ html, body {
   text-align: center;
   border-radius: 0 0 1em 1em;
   padding-bottom: .25em;
-  color: #36F21D;
+  color: #999;
 }
 
 #utilBar a {
