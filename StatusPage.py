@@ -87,22 +87,22 @@ class StatusPage:
     print "bottom left hum: " + str(self.bottomLeftDHT.humidity())
     print "bottom right hum: " + str(self.bottomRightDHT.humidity())
 
-
   def data(self):
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
     vars['baskingStatus'] = 'OFF' if self.basking.status() == 1 else 'ON'
 
-    vars['topLeftTemp'] = self.temperatureRangeHtml(self.topLeftDHT.temperatureF())
-    vars['topRightTemp'] = self.temperatureRangeHtml(self.topRightDHT.temperatureF())
-    vars['bottomLeftTemp'] = self.temperatureRangeHtml(self.bottomLeftDHT.temperatureF())
-    vars['bottomRightTemp'] = self.temperatureRangeHtml(self.bottomRightDHT.temperatureF())
+    
+    vars['topLeftTempValue'] = self.topLeftDHT.temperatureF()
+    vars['topRightTempValue'] = self.topRightDHT.temperatureF()
+    vars['bottomLeftTempValue'] = self.bottomLeftDHT.temperatureF()
+    vars['bottomRightTempValue'] = self.bottomRightDHT.temperatureF()
 
-    vars['topLeftHumidity'] = self.humidityRangeHtml(self.topLeftDHT.humidity())
-    vars['topRightHumidity'] = self.humidityRangeHtml(self.topRightDHT.humidity())
-    vars['bottomLeftHumidity'] = self.humidityRangeHtml(self.bottomLeftDHT.humidity())
-    vars['bottomRightHumidity'] = self.humidityRangeHtml(self.bottomRightDHT.humidity())
-
+    vars['topLeftHumidityValue'] = self.topLeftDHT.humidity()
+    vars['topRightHumidityValue'] = self.topRightDHT.humidity()
+    vars['bottomLeftHumidityValue'] = self.bottomLeftDHT.humidity()
+    vars['bottomRightHumidityValue'] = self.bottomRightDHT.humidity()
+    
     vars['weatherIcon'] = self.weather.icon()
     vars['outsideTemp'] = int(self.weather.temperature())
     vars['outsideMinTemp'] = int(self.weather.tempLow())

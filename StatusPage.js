@@ -9,7 +9,7 @@ function startTime() {
   var s=today.getSeconds();
   var mth=monthNames[today.getMonth()]
   var day=today.getDay()
-  if (s % 30 == 0 && refreshEnabled) { location.reload() }
+  if (s % 5 == 0 && refreshEnabled) { refreshData() }
   h = h > 12 ? h-12 : h;
   h = h == 0 ? 12 : h;
   // add a zero in front of numbers < 10
@@ -19,7 +19,6 @@ function startTime() {
   document.getElementById('timeSeconds').innerHTML=s;
   document.getElementById('dateContainer').innerHTML=mth+" "+day;
   t=setTimeout(function(){ startTime() },500);
-  refreshData();
 }
 
 function enableRefresh() {
@@ -38,16 +37,69 @@ function checkTime(i) {
 }
 
 function refreshData() {
-  alert("started");
   $.getJSON( "/update", function( data ) {
     var items = [];
     $.each( data, function( key, val ) {
-      items.push( "<li id='" + key + "'>" + val + "</li>" );
+      if (key == 'topLeftTempValue') {
+        $("#topLeftTemp").html(temperatureRangeHtml(val))
+      } else if (key == 'topLeftHumidityValue') {
+        $("#topLeftHumidity").html(humidityRangeHtml(val))
+
+      } else if (key == 'topRightTempValue') {
+        $("#topRightTemp").html(temperatureRangeHtml(val))
+      } else if (key == 'topRightHumidityValue') {
+        $("#topRightHumidity").html(humidityRangeHtml(val))
+
+      } else if (key == 'bottomLeftTempValue') {
+        $("#bottomLeftTemp").html(temperatureRangeHtml(val))
+      } else if (key == 'bottomLeftHumidityValue') {
+        $("#bottomLeftHumidity").html(humidityRangeHtml(val))
+      
+      } else if (key == 'bottomRightTempValue') {
+        $("#bottomRightTemp").html(temperatureRangeHtml(val))
+      } else if (key == 'bottomRightHumidityValue') {
+        $("#bottomRightHumidity").html(humidityRangeHtml(val))
+      }
+
+
     });
-                 
-    $( "<ul/>", {
-      "class": "my-new-list",
-      html: items.join( "" )
-    }).appendTo( "body" );
   });
+}
+
+function temperatureRangeHtml(value) {
+  return rangeHtml(value, "F", 50, 100, 'blueRedFullRange')
+}
+
+function humidityRangeHtml(value) {
+  return rangeHtml(value, "%", 30, 90, 'redBlueFullRange')
+}
+
+function rangeHtml(value, units, min, max, cssBackground) {
+  var html = "<div class='rangeTitle'>";
+  html += "<span class='rangeValue'>" + value + "</span>";
+  html += "<span class='rangeTitleUnits'>" + units + "</span>";
+  html += "</div>";
+  html += "<div class='rangeBar " + cssBackground + "'>";
+  var perc = (value-min) / (max-min);
+  var mark = perc > 0 ? Math.floor(perc * 45) : 1;
+  for (var i in range(1, 45)) {
+    if (i == mark-1 || i == mark+1) {
+      html += "<div class='rangeTick rangeTickMed'></div>";
+    } else if (i == mark) {
+      html += "<div class='rangeTick rangeTickLarge'>";
+      html += "</div>";
+    } else {
+      html += "<div class='rangeTick'></div>";
+    }
+  }
+  html += "</div>";
+  return html;
+}
+
+function range(start, end){
+    var array = new Array();
+    for(var i = start; i < end; i++){
+        array.push(i);
+    }
+    return array;
 }
