@@ -60,6 +60,11 @@ function refreshData() {
       } else if (key == 'bottomRightHumidityValue') {
         $("#bottomRightHumidity").html(humidityRangeHtml(val))
 
+      } else if (key == 'uvbStatus') {
+        $("#uvbLightStatus").html(val)
+      } else if (key == 'baskingStatus') {
+        $("#baskingLightStatus").html(val)
+      
       } else if (key == 'outsideMinTemp') {
         $("#minTemp").html(val)
       } else if (key == 'outsideTemp') {
