@@ -59,9 +59,14 @@ function refreshData() {
         $("#bottomRightTemp").html(temperatureRangeHtml(val))
       } else if (key == 'bottomRightHumidityValue') {
         $("#bottomRightHumidity").html(humidityRangeHtml(val))
+
+      } else if (key == 'outsideMinTemp') {
+        $("#minTemp").html(val)
+      } else if (key == 'outsideTemp') {
+        $("#currTemp").html(val)
+      } else if (key == 'outsideMaxTemp') {
+        $("#maxTemp").html(val)
       }
-
-
     });
   });
 }
