@@ -22,6 +22,7 @@ html, body {
   right: 0;
   background: rgba(34, 34, 34, 0.75);
   text-align: center;
+  font-size: .75em;
   border-radius: 0 0 1em 1em;
   padding-bottom: .25em;
   color: #999;

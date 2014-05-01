@@ -21,8 +21,8 @@ function dateTime() {
   document.getElementById('timeHourMinutes').innerHTML=h+":"+m;
   document.getElementById('timeSeconds').innerHTML=s;
   document.getElementById('dateContainer').innerHTML=mth+" "+day;
-  if (s % 5 == 0) { refreshData() }
   $("#lastUpdated").html(Math.ceil((today - refreshed)/1000));
+  if (s % 5 == 0) { refreshData() }
   t=setTimeout(function(){ dateTime() },500);
 }
 
@@ -35,7 +35,6 @@ function checkTime(i) {
 
 function refreshData() {
   $.getJSON( "/update", function( data ) {
-    refreshed = new Date();
     var items = [];
     $.each( data, function( key, val ) {
       if (key == 'topLeftTempValue') {
@@ -73,6 +72,8 @@ function refreshData() {
         $("#weatherIcon").attr('src', val);
       } 
     });
+    refreshed = new Date();
+    $("#lastUpdated").html(0);
   });
 }
 
