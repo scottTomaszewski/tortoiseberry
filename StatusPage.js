@@ -66,7 +66,9 @@ function refreshData() {
         $("#currTemp").html(val)
       } else if (key == 'outsideMaxTemp') {
         $("#maxTemp").html(val)
-      }
+      } else if (key == 'weatherIcon') {
+        $("#weatherIcon").attr('src', val);
+      } 
     });
   });
 }
