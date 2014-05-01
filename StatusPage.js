@@ -19,6 +19,7 @@ function startTime() {
   document.getElementById('timeSeconds').innerHTML=s;
   document.getElementById('dateContainer').innerHTML=mth+" "+day;
   t=setTimeout(function(){ startTime() },500);
+  refreshData();
 }
 
 function enableRefresh() {
@@ -34,4 +35,19 @@ function checkTime(i) {
     i="0" + i;
   }
   return i;
+}
+
+function refreshData() {
+  alert("started");
+  $.getJSON( "/update", function( data ) {
+    var items = [];
+    $.each( data, function( key, val ) {
+      items.push( "<li id='" + key + "'>" + val + "</li>" );
+    });
+                 
+    $( "<ul/>", {
+      "class": "my-new-list",
+      html: items.join( "" )
+    }).appendTo( "body" );
+  });
 }
