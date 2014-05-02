@@ -4,7 +4,6 @@ tortoiseberry
 Tortoise tank sensor management via a raspberry pi
 
     git clone git@github.com:scottTomaszewski/tortoiseberry.git
-    cd tortoiseberry
 
 External Requirements 
 
@@ -21,3 +20,16 @@ Library for interacting with gpio pins on the raspberry pi in python
     cd PIGPIO
     make
     make install
+
+Running
+=======
+
+Startup pigpio
+
+    sudo pigpiod
+
+Start the server
+
+    sudo python Server.py
+
+Browse to site at localhost:3674
