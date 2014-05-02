@@ -5,7 +5,6 @@ Tortoise tank sensor management via a raspberry pi
 
     git clone git@github.com:scottTomaszewski/tortoiseberry.git
     cd tortoiseberry
-    git submodule update --init
 
 External Requirements 
 
