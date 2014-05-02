@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import StatusPage
 import CGIHTTPServer
 from CGIHTTPServer import CGIHTTPRequestHandler
