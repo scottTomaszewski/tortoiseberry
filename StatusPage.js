@@ -17,8 +17,8 @@ function dateTime() {
   h = h > 12 ? h-12 : h;
   h = h == 0 ? 12 : h;
   // add a zero in front of numbers < 10
-  m=checkTime(m);
-  s=checkTime(s);
+  m=padTime(m);
+  s=padTime(s);
   $('#timeHourMinutes').html(h+":"+m);
   $('#timeSeconds').html(s);
   $('#dateContainer').html(days[day]+", "+mth+" "+day);
@@ -27,7 +27,7 @@ function dateTime() {
   t=setTimeout(function(){ dateTime() },500);
 }
 
-function checkTime(i) {
+function padTime(i) {
   if (i<10) {
     i="0" + i;
   }
