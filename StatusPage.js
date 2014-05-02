@@ -1,5 +1,6 @@
 var monthNames = [ "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December" ];
+var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 var refreshed = new Date();
 
 function startTime() {
@@ -20,7 +21,7 @@ function dateTime() {
   s=checkTime(s);
   document.getElementById('timeHourMinutes').innerHTML=h+":"+m;
   document.getElementById('timeSeconds').innerHTML=s;
-  document.getElementById('dateContainer').innerHTML=mth+" "+day;
+  document.getElementById('dateContainer').innerHTML=days[day]+", "+mth+" "+day;
   $("#lastUpdated").html(Math.ceil((today - refreshed)/1000));
   if (s % 5 == 0) { refreshData() }
   t=setTimeout(function(){ dateTime() },500);
