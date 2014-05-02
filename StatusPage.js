@@ -19,9 +19,9 @@ function dateTime() {
   // add a zero in front of numbers < 10
   m=checkTime(m);
   s=checkTime(s);
-  document.getElementById('timeHourMinutes').innerHTML=h+":"+m;
-  document.getElementById('timeSeconds').innerHTML=s;
-  document.getElementById('dateContainer').innerHTML=days[day]+", "+mth+" "+day;
+  $('#timeHourMinutes').html(h+":"+m);
+  $('#timeSeconds').html(s);
+  $('#dateContainer').html(days[day]+", "+mth+" "+day);
   $("#lastUpdated").html(Math.ceil((today - refreshed)/1000));
   if (s % 5 == 0) { refreshData() }
   t=setTimeout(function(){ dateTime() },500);
