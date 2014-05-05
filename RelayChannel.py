@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from apscheduler.scheduler import Scheduler
 
 class RelayChannel:
-  def __init__(self, gpioPini, scheduler = None):
+  def __init__(self, gpioPin, scheduler = None):
     if str(gpioPin).isdigit():
       if scheduler is None:
         scheduler = Scheduler() 
