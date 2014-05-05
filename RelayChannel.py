@@ -1,8 +1,12 @@
 import RPi.GPIO as GPIO
+from apscheduler.scheduler import Scheduler
 
 class RelayChannel:
-  def __init__(self, gpioPin):
+  def __init__(self, gpioPini, scheduler = None):
     if str(gpioPin).isdigit():
+      if scheduler is None:
+        scheduler = Scheduler() 
+      self.scheduler = scheduler
       self.pin = gpioPin
       GPIO.setmode(GPIO.BOARD)
       GPIO.setwarnings(False) 
@@ -19,3 +23,11 @@ class RelayChannel:
   def status(self):
     return GPIO.input(self.pin)
 
+  def turnOnDailyAt(self, hour, minute):
+    self.scheduler.add_cron_job(self.on, hour=hour, minute=minute)
+
+  def turnOffDailyAt(self, hour, minute):
+    self.scheduler.add_cron_job(self.off, hour=hour, minute=minute)
+
+  def shutdown(self):
+    self.scheduler.shutdown(wait=False)
