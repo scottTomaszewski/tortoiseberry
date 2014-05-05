@@ -1,6 +1,15 @@
 import RPi.GPIO as GPIO
 
 class RelayChannel:
+  def __init__(self, gpioPin):
+    if str(gpioPin).isdigit():
+      self.pin = gpioPin
+      GPIO.setmode(GPIO.BOARD)
+      GPIO.setwarnings(False) 
+      GPIO.setup(self.pin, GPIO.OUT)
+    else:
+      raise Exception('Invalid pin: ' + str(gpioPin))
+
   def on(self):
     GPIO.output(self.pin, GPIO.LOW)
 
@@ -10,11 +19,3 @@ class RelayChannel:
   def status(self):
     return GPIO.input(self.pin)
 
-  def __init__(self, gpioPin):
-    if str(gpioPin).isdigit():
-      self.pin = gpioPin
-      GPIO.setmode(GPIO.BOARD)
-      GPIO.setwarnings(False) 
-      GPIO.setup(self.pin, GPIO.OUT)
-    else:
-      raise Exception('Invalid pin: ' + str(gpioPin))
