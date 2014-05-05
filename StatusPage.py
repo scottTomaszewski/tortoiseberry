@@ -1,6 +1,5 @@
 import RelayChannel
-import ScheduledRelayChannel
-import Schedule
+from apscheduler.schedule import Scheduler
 import DHT11
 from string import Template
 import math
@@ -14,10 +13,9 @@ import datetime
 class StatusPage:
   def __init__(self):
     pigpio.start()
-    self.overhead = self.spikeOverheadLight()
-    self.overhead.off()
-    self.basking = self.spikeBaskingLight()
-    self.basking.off()
+    scheduler = Scheduler()
+    self.overhead = self.spikeOverheadLight(scheduler)
+    self.basking = self.spikeBaskingLight(scheduler)
     self.topLeftDHT = DHT11.DHT11_sensor(4)
     self.topRightDHT = DHT11.DHT11_sensor(14)
     self.bottomLeftDHT = DHT11.DHT11_sensor(15)
@@ -28,21 +26,19 @@ class StatusPage:
     self.bottomRightDHT.autoUpdate()
     self.weather = Weather.Weather()
 
-  def spikeOverheadLight(self):
-    relayChannel = RelayChannel.RelayChannel(11)
-    sched = Schedule.Schedule()
-    now = datetime.datetime.now()
-    sched.add('on', '*', '10', '0')
-    sched.add('off', '*', '22', '0')
-    return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
+  def spikeOverheadLight(self, sched):
+    relayChannel = RelayChannel.RelayChannel(11, sched)
+    relayChannel.turnOnDailyAt('10', '0')
+    relayChannel.turnOffDailyAt('22', '0')
+    relayChannel.off()
+    return relayChannel
 
-  def spikeBaskingLight(self):
-    relayChannel = RelayChannel.RelayChannel(13)
-    sched = Schedule.Schedule()
-    now = datetime.datetime.now()
-    sched.add('on', '*', '12', '0')
-    sched.add('off', '*', '15', '0')
-    return ScheduledRelayChannel.ScheduledRelayChannel(relayChannel, sched)
+  def spikeBaskingLight(self, sched):
+    relayChannel = RelayChannel.RelayChannel(13, sched)
+    relayChannel.turnOnDailyAt('12', '0')
+    relayChannel.turnOffDailyAt('15', '0')
+    relayChannel.off()
+    return relayChannel
 
   def parse(self, form):
     if 'overheadOn' in form:
