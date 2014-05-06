@@ -2,7 +2,6 @@ from string import Template
 from apscheduler.schedule import Scheduler
 import RelayChannel
 import DHT11
-import math
 import Weather
 
 class StatusPage:
