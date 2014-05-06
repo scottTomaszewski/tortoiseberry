@@ -1,7 +1,7 @@
-import RelayChannel
-from apscheduler.schedule import Scheduler
-import DHT11
 from string import Template
+from apscheduler.schedule import Scheduler
+import RelayChannel
+import DHT11
 import math
 import Weather
 
