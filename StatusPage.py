@@ -50,22 +50,10 @@ class StatusPage:
     if 'baskingOff' in form:
       self.basking.off()
 
-  def printData(self):
-    print "top left temp: " + str(self.topLeftDHT.temperatureF())
-    print "top right temp: " + str(self.topRightDHT.temperatureF())
-    print "bottom left temp: " + str(self.bottomLeftDHT.temperatureF())
-    print "bottom right temp: " + str(self.bottomRightDHT.temperatureF())
-
-    print "top left hum: " + str(self.topLeftDHT.humidity())
-    print "top right hum: " + str(self.topRightDHT.humidity())
-    print "bottom left hum: " + str(self.bottomLeftDHT.humidity())
-    print "bottom right hum: " + str(self.bottomRightDHT.humidity())
-
   def data(self):
     vars = {}
     vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
     vars['baskingStatus'] = 'OFF' if self.basking.status() == 1 else 'ON'
-
     
     vars['topLeftTempValue'] = self.topLeftDHT.temperatureF()
     vars['topRightTempValue'] = self.topRightDHT.temperatureF()
