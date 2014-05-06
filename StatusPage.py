@@ -65,11 +65,8 @@ class StatusPage:
     return vars
 
   def content(self):
-    content = ""
     html = open('StatusPage.html','rb')
-    for line in html:
-      content += Template(line).substitute(self.data())
-    return content
+    return html.read()
 
   def update(self):
     return json.dumps(self.data())
