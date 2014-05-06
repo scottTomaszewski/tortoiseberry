@@ -1,4 +1,3 @@
-from string import Template
 from apscheduler.schedule import Scheduler
 import RelayChannel
 import DHT11
