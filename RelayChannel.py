@@ -31,3 +31,14 @@ class RelayChannel:
 
   def shutdown(self):
     self.scheduler.shutdown(wait=False)
+
+  if __name__ == "__main__":
+    import time
+    import RelayChannel
+
+    toTest = RelayChannel.RelayChannel(11)
+    toTest.off()
+    print "status: " + str(toTest.status())
+    time.sleep(2)
+    toTest.on()
+    print "status: " + str(toTest.status())
