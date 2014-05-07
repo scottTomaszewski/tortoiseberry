@@ -34,10 +34,10 @@ class Weather:
 
   def k2c(self, t):
     return t-273.15
-  
+
   def k2f(self, t):
     return (t*9/5.0)-459.67
-  
+
   def codeToIcon(self, codeString):
     code = int(codeString)
     if code >= 200 and code < 300:

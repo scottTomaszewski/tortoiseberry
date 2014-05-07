@@ -14,6 +14,7 @@ function dateTime() {
   var s=today.getSeconds();
   var mth=monthNames[today.getMonth()]
   var day=today.getDay()
+  var date=today.getDate()
   h = h > 12 ? h-12 : h;
   h = h == 0 ? 12 : h;
   // add a zero in front of numbers < 10
@@ -21,7 +22,7 @@ function dateTime() {
   s=padTime(s);
   $('#timeHourMinutes').html(h+":"+m);
   $('#timeSeconds').html(s);
-  $('#dateContainer').html(days[day]+", "+mth+" "+day);
+  $('#dateContainer').html(days[day]+", "+mth+" "+date);
   $("#lastUpdated").html(Math.ceil((today - refreshed)/1000));
   if (s % 5 == 0) { refreshData() }
   t=setTimeout(function(){ dateTime() },500);
