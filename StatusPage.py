@@ -1,4 +1,4 @@
-from apscheduler.schedule import Scheduler
+from apscheduler.scheduler import Scheduler
 import RelayChannel
 import DHT11
 import Weather
