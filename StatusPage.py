@@ -2,9 +2,11 @@ from apscheduler.scheduler import Scheduler
 import RelayChannel
 import DHT11
 import Weather
+import pigpio
 
 class StatusPage:
   def __init__(self):
+    pigpio.start()
     scheduler = Scheduler()
     self.overhead = self.spikeOverheadLight(scheduler)
     self.basking = self.spikeBaskingLight(scheduler)
@@ -69,3 +71,6 @@ class StatusPage:
 
   def update(self):
     return json.dumps(self.data())
+
+  def exit(self):
+    pigpio.stop()
