@@ -46,6 +46,7 @@ class DHT11_sensor:
       pigpio.set_mode(gpio, pigpio.INPUT)
       pigpio.set_pull_up_down(gpio, pigpio.PUD_UP)
       self.cb = pigpio.callback(gpio, pigpio.EITHER_EDGE, self._cb)
+      self.autoUpdate()
 
    def _cb(self, gpio, level, tick):
       """

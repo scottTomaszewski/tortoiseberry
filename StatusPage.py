@@ -15,10 +15,6 @@ class StatusPage:
     self.topRightDHT = DHT11.DHT11_sensor(14)
     self.bottomLeftDHT = DHT11.DHT11_sensor(15)
     self.bottomRightDHT = DHT11.DHT11_sensor(18)
-    self.topLeftDHT.autoUpdate()
-    self.topRightDHT.autoUpdate()
-    self.bottomLeftDHT.autoUpdate()
-    self.bottomRightDHT.autoUpdate()
     self.weather = Weather.Weather()
 
   def spikeOverheadLight(self, sched):
