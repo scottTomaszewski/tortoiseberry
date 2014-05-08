@@ -3,6 +3,7 @@ import RelayChannel
 import DHT11
 import Weather
 import pigpio
+import json 
 
 class StatusPage:
   def __init__(self):
