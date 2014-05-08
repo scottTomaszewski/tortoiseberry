@@ -74,4 +74,6 @@ class StatusPage:
     return json.dumps(self.data())
 
   def exit(self):
+    self.overhead.shutdown()
+    self.basking.shutdown()
     pigpio.stop()
