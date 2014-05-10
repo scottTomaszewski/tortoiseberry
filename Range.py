@@ -8,10 +8,10 @@ class Range:
     def is_within_bounds(self, maybe):
         return self.compare_to(maybe) == 0
 
-    def compare_to(self, toCheck):
-        if toCheck < self.get_min():
+    def compare_to(self, to_check):
+        if to_check < self.get_min():
             return -1
-        if toCheck > self.get_max():
+        if to_check > self.get_max():
             return 1
         return 0
 
