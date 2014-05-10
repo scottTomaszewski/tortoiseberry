@@ -52,7 +52,8 @@ class StatusPage:
 
         return data
 
-    def content(self):
+    @staticmethod
+    def content():
         html = open('StatusPage.html', 'rb')
         return html.read()
 
@@ -60,6 +61,6 @@ class StatusPage:
         return json.dumps(self.data())
 
     def exit(self):
-        self.overchead.shutdown()
+        self.overhead.shutdown()
         self.basking.shutdown()
         pigpio.stop()
