@@ -1,6 +1,7 @@
-import json, urllib
-from pprint import pprint
+import json
+import urllib
 import time
+
 
 class Weather:
   def __init__(self):
