@@ -43,25 +43,20 @@ class StatusPage:
             self.basking.off()
 
     def data(self):
-        vars = {}
-        vars['uvbStatus'] = 'OFF' if self.overhead.status() == 1 else 'ON'
-        vars['baskingStatus'] = 'OFF' if self.basking.status() == 1 else 'ON'
+        data = {'uvbStatus': 'OFF' if self.overhead.status() == 1 else 'ON',
+                'baskingStatus': 'OFF' if self.basking.status() == 1 else 'ON',
+                'topLeftTempValue': self.topLeftDHT.temperatureF(),
+                'topRightTempValue': self.topRightDHT.temperatureF(),
+                'bottomLeftTempValue': self.bottomLeftDHT.temperatureF(),
+                'bottomRightTempValue': self.bottomRightDHT.temperatureF(),
+                'topLeftHumidityValue': self.topLeftDHT.humidity(),
+                'topRightHumidityValue': self.topRightDHT.humidity(),
+                'bottomLeftHumidityValue': self.bottomLeftDHT.humidity(),
+                'bottomRightHumidityValue': self.bottomRightDHT.humidity(), 'weatherIcon': self.weather.icon(),
+                'outsideTemp': int(self.weather.temperature()), 'outsideMinTemp': int(self.weather.tempLow()),
+                'outsideMaxTemp': int(self.weather.tempHigh())}
 
-        vars['topLeftTempValue'] = self.topLeftDHT.temperatureF()
-        vars['topRightTempValue'] = self.topRightDHT.temperatureF()
-        vars['bottomLeftTempValue'] = self.bottomLeftDHT.temperatureF()
-        vars['bottomRightTempValue'] = self.bottomRightDHT.temperatureF()
-
-        vars['topLeftHumidityValue'] = self.topLeftDHT.humidity()
-        vars['topRightHumidityValue'] = self.topRightDHT.humidity()
-        vars['bottomLeftHumidityValue'] = self.bottomLeftDHT.humidity()
-        vars['bottomRightHumidityValue'] = self.bottomRightDHT.humidity()
-
-        vars['weatherIcon'] = self.weather.icon()
-        vars['outsideTemp'] = int(self.weather.temperature())
-        vars['outsideMinTemp'] = int(self.weather.tempLow())
-        vars['outsideMaxTemp'] = int(self.weather.tempHigh())
-        return vars
+        return data
 
     def content(self):
         html = open('StatusPage.html', 'rb')
