@@ -22,8 +22,8 @@ class Weather:
         return "http://openweathermap.org/img/w/" + icon + ".png"
 
     def icon(self):
-        id = self.data()['weather'][0]['id']
-        return '/images/' + str(code_to_icon(id))
+        weather_code = self.data()['weather'][0]['id']
+        return '/images/' + str(code_to_icon(weather_code))
 
     def data(self):
         five_minutes = 300
