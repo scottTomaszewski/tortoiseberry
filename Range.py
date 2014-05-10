@@ -15,6 +15,6 @@ class Range:
             return 1
         return 0
 
-    def __init__(self, min, max):
-        self.min = min
-        self.max = max
+    def __init__(self, minimum, maximum):
+        self.min = minimum
+        self.max = maximum
