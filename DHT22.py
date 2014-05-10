@@ -4,15 +4,15 @@ import pigpio
 
 
 class DHT22Sensor(DHT11):
-    def adjustTemperature(self):
+    def adjust_temperature(self):
         if self.tH & 128:  # negative temperature
-            mult = -0.1
+            multiplier = -0.1
             self.tH = self.tH & 127
         else:
-            mult = 0.1
-        return ((self.tH << 8) + self.tL) * mult
+            multiplier = 0.1
+        return ((self.tH << 8) + self.tL) * multiplier
 
-    def adjustHumidity(self):
+    def adjust_humidity(self):
         return ((self.hH << 8) + self.hL) * 0.1
 
 
