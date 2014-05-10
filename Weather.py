@@ -36,23 +36,23 @@ class Weather:
 
 def code_to_icon(code_string):
     code = int(code_string)
-    if code >= 200 and code < 300:
+    if 200 <= code < 300:
         return 'storm.png'
-    if code >= 300 and code < 400:
+    if 300 <= code < 400:
         return 'chance of rain.png'
     if code == 511:
         return 'rain snow.png'
-    if code >= 500 and code < 600:
+    if 500 <= code < 600:
         return 'rain.png'
     if code == 600:
         return 'light snow.png'
-    if code >= 601 and code < 612:
+    if 601 <= code < 612:
         return 'snow.png'
-    if code >= 612 and code < 700:
+    if 612 <= code < 700:
         return 'icy.png'
-    if code >= 701 and code < 722:
+    if 701 <= code < 722:
         return 'mist.png'
-    if code >= 731 and code < 800:
+    if 731 <= code < 800:
         return 'fog.png'
     if code == 800:
         return 'sunny.png'
