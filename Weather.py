@@ -5,19 +5,19 @@ import time
 
 class Weather:
     def __init__(self):
-        self.lastChecked = None
+        self.last_checked = None
         self.weather = None
 
     def temperature(self):
         return self.k2f(self.data()['main']['temp'])
 
-    def tempHigh(self):
+    def temp_high(self):
         return self.k2f(self.data()['main']['temp_max'])
 
-    def tempLow(self):
+    def temp_low(self):
         return self.k2f(self.data()['main']['temp_min'])
 
-    def iconURL(self):
+    def icon_url(self):
         icon = self.data()['weather'][0]['icon']
         return "http://openweathermap.org/img/w/" + icon + ".png"
 
@@ -26,11 +26,11 @@ class Weather:
         return '/images/' + str(self.codeToIcon(id))
 
     def data(self):
-        fiveMinutes = 300
-        if self.lastChecked == None or time.time() - self.lastChecked > fiveMinutes:
-            jsonWeather = urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?id=4049032").read()
-            self.weather = json.loads(jsonWeather)
-            self.lastChecked = time.time()
+        five_minutes = 300
+        if self.last_checked == None or time.time() - self.last_checked > five_minutes:
+            json_weather = urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?id=4049032").read()
+            self.weather = json.loads(json_weather)
+            self.last_checked = time.time()
         return self.weather
 
     def k2c(self, t):
@@ -39,8 +39,8 @@ class Weather:
     def k2f(self, t):
         return (t * 9 / 5.0) - 459.67
 
-    def codeToIcon(self, codeString):
-        code = int(codeString)
+    def codeToIcon(self, code_string):
+        code = int(code_string)
         if code >= 200 and code < 300:
             return 'storm.png'
         if code >= 300 and code < 400:

@@ -47,8 +47,8 @@ class StatusPage:
                 'topRightHumidityValue': self.top_right_dht.humidity(),
                 'bottomLeftHumidityValue': self.bottom_left_dht.humidity(),
                 'bottomRightHumidityValue': self.bottom_right_dht.humidity(), 'weatherIcon': self.weather.icon(),
-                'outsideTemp': int(self.weather.temperature()), 'outsideMinTemp': int(self.weather.tempLow()),
-                'outsideMaxTemp': int(self.weather.tempHigh())}
+                'outsideTemp': int(self.weather.temperature()), 'outsideMinTemp': int(self.weather.temp_low()),
+                'outsideMaxTemp': int(self.weather.temp_high())}
 
         return data
 
