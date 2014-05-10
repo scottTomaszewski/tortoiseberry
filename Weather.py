@@ -27,7 +27,7 @@ class Weather:
 
     def data(self):
         five_minutes = 300
-        if self.last_checked == None or time.time() - self.last_checked > five_minutes:
+        if self.last_checked is None or time.time() - self.last_checked > five_minutes:
             json_weather = urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?id=4049032").read()
             self.weather = json.loads(json_weather)
             self.last_checked = time.time()
