@@ -10,27 +10,21 @@ class StatusPage:
     def __init__(self):
         pigpio.start()
         scheduler = Scheduler()
-        self.overhead = self.spikeOverheadLight(scheduler)
-        self.basking = self.spikeBaskingLight(scheduler)
-        self.topLeftDHT = DHT11.DHT11_sensor(4)
-        self.topRightDHT = DHT11.DHT11_sensor(14)
-        self.bottomLeftDHT = DHT11.DHT11_sensor(15)
-        self.bottomRightDHT = DHT11.DHT11_sensor(18)
+        self.overhead = RelayChannel.RelayChannel(11, scheduler)
+        self.overhead.turnOnDailyAt('10', '0')
+        self.overhead.turnOffDailyAt('22', '0')
+        self.overhead.off()
+
+        self.basking = RelayChannel.RelayChannel(13, scheduler)
+        self.basking.turnOnDailyAt('12', '0')
+        self.basking.turnOffDailyAt('15', '0')
+        self.basking.off()
+
+        self.top_left_dht = DHT11.DHT11_sensor(4)
+        self.top_right_dht = DHT11.DHT11_sensor(14)
+        self.bottom_left_dht = DHT11.DHT11_sensor(15)
+        self.bottom_right_dht = DHT11.DHT11_sensor(18)
         self.weather = Weather.Weather()
-
-    def spikeOverheadLight(self, sched):
-        relayChannel = RelayChannel.RelayChannel(11, sched)
-        relayChannel.turnOnDailyAt('10', '0')
-        relayChannel.turnOffDailyAt('22', '0')
-        relayChannel.off()
-        return relayChannel
-
-    def spikeBaskingLight(self, sched):
-        relayChannel = RelayChannel.RelayChannel(13, sched)
-        relayChannel.turnOnDailyAt('12', '0')
-        relayChannel.turnOffDailyAt('15', '0')
-        relayChannel.off()
-        return relayChannel
 
     def parse(self, form):
         if 'overheadOn' in form:
@@ -45,14 +39,14 @@ class StatusPage:
     def data(self):
         data = {'uvbStatus': 'OFF' if self.overhead.status() == 1 else 'ON',
                 'baskingStatus': 'OFF' if self.basking.status() == 1 else 'ON',
-                'topLeftTempValue': self.topLeftDHT.temperatureF(),
-                'topRightTempValue': self.topRightDHT.temperatureF(),
-                'bottomLeftTempValue': self.bottomLeftDHT.temperatureF(),
-                'bottomRightTempValue': self.bottomRightDHT.temperatureF(),
-                'topLeftHumidityValue': self.topLeftDHT.humidity(),
-                'topRightHumidityValue': self.topRightDHT.humidity(),
-                'bottomLeftHumidityValue': self.bottomLeftDHT.humidity(),
-                'bottomRightHumidityValue': self.bottomRightDHT.humidity(), 'weatherIcon': self.weather.icon(),
+                'topLeftTempValue': self.top_left_dht.temperatureF(),
+                'topRightTempValue': self.top_right_dht.temperatureF(),
+                'bottomLeftTempValue': self.bottom_left_dht.temperatureF(),
+                'bottomRightTempValue': self.bottom_right_dht.temperatureF(),
+                'topLeftHumidityValue': self.top_left_dht.humidity(),
+                'topRightHumidityValue': self.top_right_dht.humidity(),
+                'bottomLeftHumidityValue': self.bottom_left_dht.humidity(),
+                'bottomRightHumidityValue': self.bottom_right_dht.humidity(), 'weatherIcon': self.weather.icon(),
                 'outsideTemp': int(self.weather.temperature()), 'outsideMinTemp': int(self.weather.tempLow()),
                 'outsideMaxTemp': int(self.weather.tempHigh())}
 
@@ -66,6 +60,6 @@ class StatusPage:
         return json.dumps(self.data())
 
     def exit(self):
-        self.overhead.shutdown()
+        self.overchead.shutdown()
         self.basking.shutdown()
         pigpio.stop()
