@@ -11,13 +11,13 @@ class StatusPage:
         pigpio.start()
         scheduler = Scheduler()
         self.overhead = RelayChannel.RelayChannel(11, scheduler)
-        self.overhead.turnOnDailyAt('10', '0')
-        self.overhead.turnOffDailyAt('22', '0')
+        self.overhead.turn_on_daily_at('10', '0')
+        self.overhead.turn_off_daily_at('22', '0')
         self.overhead.off()
 
         self.basking = RelayChannel.RelayChannel(13, scheduler)
-        self.basking.turnOnDailyAt('12', '0')
-        self.basking.turnOffDailyAt('15', '0')
+        self.basking.turn_on_daily_at('12', '0')
+        self.basking.turn_off_daily_at('15', '0')
         self.basking.off()
 
         self.top_left_dht = DHT11.DHT11_sensor(4)
