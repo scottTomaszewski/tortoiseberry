@@ -44,6 +44,15 @@ class DHT11Sensor:
         self.temp = -999
         self.tov = None
         self.tick = 0
+
+        # reset in trigger
+        self.bit = -3  # header bits
+        self.hH = 0
+        self.hL = 0
+        self.tH = 0
+        self.tL = 0
+        self.checksum = 0
+
         pigpio.set_mode(gpio, pigpio.INPUT)
         pigpio.set_pull_up_down(gpio, pigpio.PUD_UP)
         self.cb = pigpio.callback(gpio, pigpio.EITHER_EDGE, self._cb)
