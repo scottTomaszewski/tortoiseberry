@@ -168,6 +168,7 @@ class DHT11Sensor:
         return self.hum_high_byte
 
     def auto_update(self):
+        """Automatically triggers the device every 5 seconds"""
         self.trigger()
         threading.Timer(5, self.auto_update).start()
 
