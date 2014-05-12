@@ -37,8 +37,8 @@ class DHT11Sensor:
         Instantiate with the gpio to which the DHT11 output pin is connected.
         """
         self.gpio = gpio
-        self.bad_CS = 0  # checksum
-        self.bad_TO = 0  # time-out
+        self.bad_checksum = 0  # checksum
+        self.bad_timeout = 0  # time-out
         self.accumulating = False
         self.rhum = -999
         self.temp = -999
@@ -77,7 +77,7 @@ class DHT11Sensor:
                             self.temp = self.adjustTemperature()
                             self.tov = time.time()
                         else:
-                            self.bad_CS += 1
+                            self.bad_checksum += 1
 
                 elif self.bit >= 24:  # in temp low byte
                     self.tL = (self.tL << 1) + val
@@ -100,7 +100,7 @@ class DHT11Sensor:
                 # time out if less than 40 bits received
                 self.accumulating = False
                 pigpio.set_watchdog(self.gpio, 0)
-                self.bad_TO += 1
+                self.bad_timeout += 1
 
         else:  # perhaps a repeated watchdog
             if level == pigpio.TIMEOUT:
@@ -126,11 +126,11 @@ class DHT11Sensor:
 
     def bad_checksum(self):
         """Return count of messages received with bad checksums."""
-        return self.bad_CS
+        return self.bad_checksum
 
     def timed_out(self):
         """Return count of messages which have timed out."""
-        return self.bad_TO
+        return self.bad_timeout
 
     def trigger(self):
         """Trigger a new relative humidity and temperature reading."""
