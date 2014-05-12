@@ -47,10 +47,10 @@ class DHT11Sensor:
 
         # reset in trigger
         self.bit = -3  # header bits
-        self.hH = 0
-        self.hL = 0
-        self.tH = 0
-        self.tL = 0
+        self.hum_high = 0
+        self.hum_low = 0
+        self.temp_high = 0
+        self.temp_low = 0
         self.checksum = 0
 
         pigpio.set_mode(gpio, pigpio.INPUT)
@@ -79,7 +79,7 @@ class DHT11Sensor:
                         # 40 bits received
                         self.accumulating = False
                         pigpio.set_watchdog(self.gpio, 0)
-                        total = self.hH + self.hL + self.tH + self.tL
+                        total = self.hum_high + self.hum_low + self.temp_high + self.temp_low
 
                         if (total & 255) == self.checksum:  # is checksum ok
                             self.relative_humidity = self.adjust_humidity()
@@ -89,13 +89,13 @@ class DHT11Sensor:
                             self.bad_checksum += 1
 
                 elif self.bit >= 24:  # in temp low byte
-                    self.tL = (self.tL << 1) + val
+                    self.temp_low = (self.temp_low << 1) + val
                 elif self.bit >= 16:  # in temp high byte
-                    self.tH = (self.tH << 1) + val
+                    self.temp_high = (self.temp_high << 1) + val
                 elif self.bit >= 8:  # in humidity low byte
-                    self.hL = (self.hL << 1) + val
+                    self.hum_low = (self.hum_low << 1) + val
                 elif self.bit >= 0:  # in humidity high byte
-                    self.hH = (self.hH << 1) + val
+                    self.hum_high = (self.hum_high << 1) + val
                 else:  # header bits
                     pass
                 self.bit += 1
@@ -146,10 +146,10 @@ class DHT11Sensor:
         pigpio.write(self.gpio, 1)
         time.sleep(0.009)
         self.bit = -3  # header bits
-        self.hH = 0
-        self.hL = 0
-        self.tH = 0
-        self.tL = 0
+        self.hum_high = 0
+        self.hum_low = 0
+        self.temp_high = 0
+        self.temp_low = 0
         self.checksum = 0
         self.accumulating = True
         pigpio.write(self.gpio, 0)
@@ -162,10 +162,10 @@ class DHT11Sensor:
         self.cb.cancel()
 
     def adjust_temperature(self):
-        return self.tH
+        return self.temp_high
 
     def adjust_humidity(self):
-        return self.hH
+        return self.hum_high
 
     def auto_update(self):
         self.trigger()
