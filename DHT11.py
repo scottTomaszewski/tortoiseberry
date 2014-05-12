@@ -47,7 +47,7 @@ class DHT11Sensor:
         pigpio.set_mode(gpio, pigpio.INPUT)
         pigpio.set_pull_up_down(gpio, pigpio.PUD_UP)
         self.cb = pigpio.callback(gpio, pigpio.EITHER_EDGE, self._cb)
-        self.autoUpdate()
+        self.auto_update()
 
     def _cb(self, gpio, level, tick):
         """
@@ -65,16 +65,16 @@ class DHT11Sensor:
                     val = 0
 
                 if self.bit >= 32:  # in checksum byte
-                    self.CS = (self.CS << 1) + val
+                    self.checksum = (self.checksum << 1) + val
                     if self.bit >= 39:
                         # 40 bits received
                         self.accumulating = False
                         pigpio.set_watchdog(self.gpio, 0)
                         total = self.hH + self.hL + self.tH + self.tL
 
-                        if (total & 255) == self.CS:  # is checksum ok
-                            self.rhum = self.adjustHumidity()
-                            self.temp = self.adjustTemperature()
+                        if (total & 255) == self.checksum:  # is checksum ok
+                            self.rhum = self.adjust_humidity()
+                            self.temp = self.adjust_temperature()
                             self.tov = time.time()
                         else:
                             self.bad_checksum += 1
@@ -110,7 +110,7 @@ class DHT11Sensor:
         """Return current temperature."""
         return self.temp
 
-    def temperatureF(self):
+    def temperature_f(self):
         return int(float(9.0 / 5.0 * self.temperature() + 32))
 
     def humidity(self):
@@ -141,7 +141,7 @@ class DHT11Sensor:
         self.hL = 0
         self.tH = 0
         self.tL = 0
-        self.CS = 0
+        self.checksum = 0
         self.accumulating = True
         pigpio.write(self.gpio, 0)
         time.sleep(0.017)
@@ -152,15 +152,15 @@ class DHT11Sensor:
         """Cancel the DHT11 sensor."""
         self.cb.cancel()
 
-    def adjustTemperature(self):
+    def adjust_temperature(self):
         return self.tH
 
-    def adjustHumidity(self):
+    def adjust_humidity(self):
         return self.hH
 
-    def autoUpdate(self):
+    def auto_update(self):
         self.trigger()
-        threading.Timer(5, self.autoUpdate).start()
+        threading.Timer(5, self.auto_update).start()
 
 
 if __name__ == "__main__":
