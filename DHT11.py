@@ -37,8 +37,8 @@ class DHT11Sensor:
         Instantiate with the gpio to which the DHT11 output pin is connected.
         """
         self.gpio = gpio
-        self.bad_checksum = 0  # checksum
-        self.bad_timeout = 0  # time-out
+        self.bad_checksum = 0
+        self.bad_timeout = 0
         self.accumulating = False
         self.rhum = -999
         self.temp = -999
