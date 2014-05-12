@@ -40,7 +40,7 @@ class DHT11Sensor:
         self.bad_checksum = 0
         self.bad_timeout = 0
         self.accumulating = False
-        self.rhum = -999
+        self.relative_humidity = -999
         self.temp = -999
         self.tov = None
         self.tick = 0
@@ -82,7 +82,7 @@ class DHT11Sensor:
                         total = self.hH + self.hL + self.tH + self.tL
 
                         if (total & 255) == self.checksum:  # is checksum ok
-                            self.rhum = self.adjust_humidity()
+                            self.relative_humidity = self.adjust_humidity()
                             self.temp = self.adjust_temperature()
                             self.tov = time.time()
                         else:
@@ -124,7 +124,7 @@ class DHT11Sensor:
 
     def humidity(self):
         """Return current relative humidity."""
-        return self.rhum
+        return self.relative_humidity
 
     def staleness(self):
         """Return time since measurement made."""
