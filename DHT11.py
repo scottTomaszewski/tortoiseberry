@@ -4,7 +4,7 @@ import threading
 import pigpio
 
 
-class DHT11_sensor:
+class DHT11Sensor:
     """
     Orginal Source:
     http://www.raspberrypi.org/forums/viewtopic.php?p=515575#p515575
@@ -169,7 +169,7 @@ if __name__ == "__main__":
     import DHT11
 
     pigpio.start()
-    s = DHT11.DHT11_sensor(4)
+    s = DHT11.DHT11Sensor(4)
     r = 0
 
     while True:

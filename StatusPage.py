@@ -20,10 +20,10 @@ class StatusPage:
         self.basking.turn_off_daily_at('15', '0')
         self.basking.off()
 
-        self.top_left_dht = DHT11.DHT11_sensor(4)
-        self.top_right_dht = DHT11.DHT11_sensor(14)
-        self.bottom_left_dht = DHT11.DHT11_sensor(15)
-        self.bottom_right_dht = DHT11.DHT11_sensor(18)
+        self.top_left_dht = DHT11.DHT11Sensor(4)
+        self.top_right_dht = DHT11.DHT11Sensor(14)
+        self.bottom_left_dht = DHT11.DHT11Sensor(15)
+        self.bottom_right_dht = DHT11.DHT11Sensor(18)
         self.weather = Weather.Weather()
 
     def parse(self, form):
