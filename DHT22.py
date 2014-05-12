@@ -7,7 +7,7 @@ class DHT22Sensor(DHT11):
     def adjust_temperature(self):
         if self.tH & 128:  # negative temperature
             multiplier = -0.1
-            self.tH = self.tH & 127
+            self.temp_high_byte = self.temp_high_byte & 127
         else:
             multiplier = 0.1
         return ((self.tH << 8) + self.tL) * multiplier
