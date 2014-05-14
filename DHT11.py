@@ -2,7 +2,7 @@
 import threading
 
 import pigpio
-
+import time
 
 class DHT11Sensor:
     """
