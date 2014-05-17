@@ -61,20 +61,20 @@ TODO
 
 * Use javascript + json to send the light toggling request
 * Convert the weather into a double size container to give room for
-** 4-day forcast
-** Wind
-** Chance of precipitation (maybe throughout the day similar to google weather)
-** Units of measurement for temperatures
-** Temperature throughout the day
+  * 4-day forcast
+  * Wind
+  * Chance of precipitation (maybe throughout the day similar to google weather)
+  * Units of measurement for temperatures
+  * Temperature throughout the day
 * Webcam
 * Config options for
-** Weather location
-** DHT sensor ports
-** Relay channel ports
-** Color options
-** Celcius vs Fahrenheit
-** Range used for temperature and humidity
+  * Weather location
+  * DHT sensor ports
+  * Relay channel ports
+  * Color options
+  * Celcius vs Fahrenheit
+  * Range used for temperature and humidity
 * Mobile support 
 * Power-user mode
-** Graphs of sensor output over time
+  * Graphs of sensor output over time
 * Authentication for sensor input (light toggling)
