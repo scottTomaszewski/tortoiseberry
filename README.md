@@ -3,6 +3,11 @@ tortoiseberry
 
 Tortoise tank sensor management via a raspberry pi
 
+![alt tag](https://raw.github.com/scottTomaszewski/tortoiseberry/master/images/tortoiseberry.png)
+
+Setup
+=====
+
     git clone git@github.com:scottTomaszewski/tortoiseberry.git
 
 External Requirements 
