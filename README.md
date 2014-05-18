@@ -56,6 +56,9 @@ Start the server
 
 Browse to site at localhost:3674
 
+To get the data from the server in json, make a GET request to localhost:3674/update
+
+
 TODO
 ====
 
