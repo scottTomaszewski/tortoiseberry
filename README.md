@@ -43,6 +43,8 @@ Library for interacting with gpio pins on the raspberry pi in python
     make
     make install
 
+https://learn.adafruit.com/system/guides/images/000/000/096/medium800/dht11wiring.gif
+
 Running
 =======
 
