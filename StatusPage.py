@@ -1,6 +1,7 @@
 from apscheduler.scheduler import Scheduler
 import RelayChannel
 import DHT11
+import DHT22
 import Weather
 import pigpio
 import json
@@ -20,7 +21,7 @@ class StatusPage:
         self.basking.turn_off_daily_at('15', '0')
         self.basking.off()
 
-        self.top_left_dht = DHT11.DHT11Sensor(14)
+        self.top_left_dht = DHT22.DHT22Sensor(14)
         self.top_right_dht = DHT11.DHT11Sensor(18)
         self.bottom_left_dht = DHT11.DHT11Sensor(15)
         self.bottom_right_dht = DHT11.DHT11Sensor(4)

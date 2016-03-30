@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 import time
 import pigpio
+import DHT11
 
-
-class DHT22Sensor(DHT11):
+class DHT22Sensor(DHT11.DHT11Sensor):
     def adjust_temperature(self):
         if self.temp_high_byte & 128:  # negative temperature
             multiplier = -0.1
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     import DHT22
 
     pigpio.start()
-    s = DHT22.DHT22Sensor(4)
+    s = DHT22.DHT22Sensor(14)
     r = 0
 
     while True:
