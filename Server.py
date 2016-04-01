@@ -24,6 +24,11 @@ class RequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
             s.send_header("Content-type", "text/html")
             s.end_headers()
             s.wfile.write(str(statusPage.update()))
+        elif s.path == '/data':
+            s.send_response(200)
+            s.send_header("Content-type", "text/html")
+            s.end_headers()
+            s.wfile.write(str(statusPage.data()))
         else:
             CGIHTTPServer.CGIHTTPRequestHandler.do_GET(s)
 
