@@ -22,8 +22,8 @@ class StatusPage:
         self.basking.off()
 
         self.top_left_dht = DHT22.DHT22Sensor(14)
-        self.top_right_dht = DHT11.DHT11Sensor(18)
-        self.bottom_left_dht = DHT11.DHT11Sensor(15)
+        self.top_right_dht = DHT22.DHT22Sensor(15)
+        self.bottom_left_dht = DHT11.DHT11Sensor(18)
         self.bottom_right_dht = DHT11.DHT11Sensor(4)
         self.weather = Weather.Weather()
 
